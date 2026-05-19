@@ -729,6 +729,11 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
+  include("C:/Dev/Projects/ESP32/temp-humid-mesh/display-module/build/esp-idf/gui/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
   include("C:/Dev/Projects/ESP32/temp-humid-mesh/display-module/build/esp-idf/main/cmake_install.cmake")
 endif()
 

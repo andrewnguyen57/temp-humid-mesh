@@ -1103,6 +1103,13 @@ C:/Dev/Projects/ESP32/temp-humid-mesh/display-module/build/esp-idf/lcd/CMakeFile
 C:/Dev/Projects/ESP32/temp-humid-mesh/display-module/build/esp-idf/lcd/CMakeFiles/install.dir
 C:/Dev/Projects/ESP32/temp-humid-mesh/display-module/build/esp-idf/lcd/CMakeFiles/install/local.dir
 C:/Dev/Projects/ESP32/temp-humid-mesh/display-module/build/esp-idf/lcd/CMakeFiles/install/strip.dir
+C:/Dev/Projects/ESP32/temp-humid-mesh/display-module/build/esp-idf/gui/CMakeFiles/__idf_gui.dir
+C:/Dev/Projects/ESP32/temp-humid-mesh/display-module/build/esp-idf/gui/CMakeFiles/edit_cache.dir
+C:/Dev/Projects/ESP32/temp-humid-mesh/display-module/build/esp-idf/gui/CMakeFiles/rebuild_cache.dir
+C:/Dev/Projects/ESP32/temp-humid-mesh/display-module/build/esp-idf/gui/CMakeFiles/list_install_components.dir
+C:/Dev/Projects/ESP32/temp-humid-mesh/display-module/build/esp-idf/gui/CMakeFiles/install.dir
+C:/Dev/Projects/ESP32/temp-humid-mesh/display-module/build/esp-idf/gui/CMakeFiles/install/local.dir
+C:/Dev/Projects/ESP32/temp-humid-mesh/display-module/build/esp-idf/gui/CMakeFiles/install/strip.dir
 C:/Dev/Projects/ESP32/temp-humid-mesh/display-module/build/esp-idf/main/CMakeFiles/__idf_main.dir
 C:/Dev/Projects/ESP32/temp-humid-mesh/display-module/build/esp-idf/main/CMakeFiles/edit_cache.dir
 C:/Dev/Projects/ESP32/temp-humid-mesh/display-module/build/esp-idf/main/CMakeFiles/rebuild_cache.dir

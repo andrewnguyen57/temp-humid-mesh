@@ -1,0 +1,13 @@
+Command: ninja all
+[1/9] Performing build step for 'bootloader'
+[1/1] C:\Windows\system32\cmd.exe /C "cd /D C:\Dev\Projects\ESP32\temp-humid-mesh\display-module\build\bootloader && C:\Espressif\tools\python\v6.0.1\venv\Scripts\python.exe C:/esp/v6.0.1/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x1000 C:/Dev/Projects/ESP32/temp-humid-mesh/display-module/build/bootloader/bootloader.bin"
+Bootloader binary size 0x6610 bytes. 0x9f0 bytes (9%) free.
+[2/9] No install step for 'bootloader'
+[3/9] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj
+C:/Dev/Projects/ESP32/temp-humid-mesh/display-module/main/main.c: In function 'app_main':
+C:/Dev/Projects/ESP32/temp-humid-mesh/display-module/main/main.c:190:17: warning: unused variable 'touch_data2' [-Wunused-variable]
+  190 |     disp_data_t touch_data2 = {counter_label2, 0};
+      |                 ^~~~~~~~~~~
+[4/9] Completed 'bootloader'
+[5/9] Linking C static library esp-idf\main\libmain.a
+[6/9] Generating esp-idf/esp_system/ld/sections.ld

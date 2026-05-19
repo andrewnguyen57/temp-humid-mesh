@@ -6,7 +6,7 @@
 // Using SPI2
 #define LCD_HOST SPI2_HOST
 
-// LCD Pins for ILI9341 Driver
+// LCD pins for ST7789 driver
 #define LCD_MISO    12
 #define LCD_MOSI    13
 #define LCD_SCLK    14
@@ -14,7 +14,12 @@
 #define LCD_DC      2
 #define LCD_RST     -1
 #define LCD_BL      27
-#define LCD_TOUCH_CS 33
+
+// Touch pins for CST820 driver
+#define LCD_TOUCH_SDA 33
+#define LCD_TOUCH_SCL 32
+#define LCD_TOUCH_RST 25
+#define LCD_TOUCH_INT 21
 
 // Bit number used to represend command and parameter
 #define LCD_CMD_BITS 8
@@ -23,9 +28,6 @@
 // Screen Size
 #define LCD_WIDTH   240
 #define LCD_HEIGHT  320
-
-// #define LCD_INVERSION_ON
-// #define LCD_RGB_ORDER LCD_BGR
 
 #define LCD_PIXEL_CLOCK_HZ (40 * 1000 * 1000)
 #define LCD_BL_ON 1
@@ -43,3 +45,6 @@
 
 // Colours
 #define NUM_COLOURS 8
+
+// Prototypes
+void lcd_init(void);

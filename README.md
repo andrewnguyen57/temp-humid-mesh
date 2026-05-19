@@ -40,3 +40,20 @@ The following needed to be tested since the information was not given by manufac
 ### 2026-05-18
 - Set up LVGL
 - Created a simple LVGL UI for testing
+- Moved initializations and setups to components directories
+- Did research on how to implement touch functionality and failed, mostly due to incorrect driver documentation from manufacturer
+- Designed GUI with place holder for future implementations
+<p align="center">
+    <img src="assets/simple-gui.png" width="40%">
+</p>
+
+
+# References
+Accessed 2026-05-16
+https://www.tztstore.com/goods/show-7983.html
+https://docs.espressif.com/projects/esp-idf/en/stable/esp32/api-reference/peripherals/lcd/index.html
+https://github.com/lvgl/lvgl
+
+
+Accessed 2026-05-18
+https://github.com/kodediy/esp_lcd_touch_cst820

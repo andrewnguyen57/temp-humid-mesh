@@ -159,6 +159,7 @@
 		"C:/Dev/Projects/ESP32/temp-humid-mesh/display-module/build/esp-idf/ulp/cmake_install.cmake",
 		"C:/Dev/Projects/ESP32/temp-humid-mesh/display-module/build/esp-idf/lvgl__lvgl/cmake_install.cmake",
 		"C:/Dev/Projects/ESP32/temp-humid-mesh/display-module/build/esp-idf/lcd/cmake_install.cmake",
+		"C:/Dev/Projects/ESP32/temp-humid-mesh/display-module/build/esp-idf/gui/cmake_install.cmake",
 		"C:/Dev/Projects/ESP32/temp-humid-mesh/display-module/build/esp-idf/main/cmake_install.cmake"
 	],
 	"Parallel" : false
