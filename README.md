@@ -47,13 +47,40 @@ The following needed to be tested since the information was not given by manufac
     <img src="assets/simple-gui.png" width="40%">
 </p>
 
+### 2026-05-25
+- Implemented ESP-NOW communication between sensor nodes and display module
+- Created FreeRTOS queue architecture for handling incoming sensor data
+- Implemented ESP-NOW receive callback and receiving task
+- Added automatic timeout detection for disconnected sensor nodes
+- Added GUI status placeholders when sensor data is unavailable
+- Designed a multi-node LVGL card-based interface for displaying temperature and humidity data
+- Refactored project structure into modular components:
+  - lcd
+  - gui
+  - network
+  - sensor_data
+- Added detailed comments and documentation throughout the codebase
+- Improved LVGL layout styling and display organization
+- Debugged LCD colour format and LVGL rendering issues
+- Tested RGB/BGR display configurations and LVGL colour handling
+- Implemented dynamic node status updates with timestamps
+- Cleaned up include structure and project organization
+<p align="center">
+    <img src="assets/udpated-gui-with-data.png" width="40%">
+</p>
 
 # References
 Accessed 2026-05-16
-https://www.tztstore.com/goods/show-7983.html
-https://docs.espressif.com/projects/esp-idf/en/stable/esp32/api-reference/peripherals/lcd/index.html
-https://github.com/lvgl/lvgl
+- https://www.tztstore.com/goods/show-7983.html
+- https://docs.espressif.com/projects/esp-idf/en/stable/esp32/api-reference/peripherals/lcd/index.html
+- https://github.com/lvgl/lvgl
 
 
 Accessed 2026-05-18
-https://github.com/kodediy/esp_lcd_touch_cst820
+- https://github.com/kodediy/esp_lcd_touch_cst820
+
+Accessed 2026-05-21
+- https://docs.espressif.com/projects/esp-idf/en/stable/esp32/api-reference/network/esp_now.html
+
+Accessed 2026-05-25
+- https://components.espressif.com/components/esp-idf-lib/sht4x/versions/1.0.7/readme

@@ -1,0 +1,6 @@
+-Wno-frame-address
+-mlongcalls
+-fno-builtin-memcpy
+-fno-builtin-memset
+-fno-builtin-bzero
+"-specs=C:/Dev/Projects/ESP32/temp-humid-mesh/sensor-module/build/specs/picolibc.specs"

@@ -1,0 +1,2 @@
+source C:/Dev/Projects/ESP32/temp-humid-mesh/sensor-module/build/gdbinit/symbols
+source C:/Dev/Projects/ESP32/temp-humid-mesh/sensor-module/build/gdbinit/connect

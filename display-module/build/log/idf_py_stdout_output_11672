@@ -1,0 +1,887 @@
+Command: C:\Espressif\tools\python\v6.0.1\venv\Scripts\python.exe C:\esp\v6.0.1\esp-idf\tools/idf_monitor.py -p COM5 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 C:\Dev\Projects\ESP32\temp-humid-mesh\display-module\build\display-module.elf C:\Dev\Projects\ESP32\temp-humid-mesh\display-module\build\bootloader\bootloader.elf --force-color -m 'C:\Espressif\tools\python\v6.0.1\venv\Scripts\python.exe' 'C:\esp\v6.0.1\esp-idf\tools\idf.py'
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0040,len:6272
+load:0x40078000,len:15848
+load:0x40080400,len:3920
+entry 0x40080644
+[0;32mI (27) boot: ESP-IDF v6.0.1 2nd stage bootloader[0m
+[0;32mI (27) boot: compile time May 24 2026 17:54:58[0m
+[0;32mI (27) boot: Multicore bootloader[0m
+[0;32mI (29) boot: chip revision: v3.1[0m
+[0;32mI (32) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (35) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (39) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (42) boot: Enabling RNG early entropy source...[0m
+[0;32mI (47) boot: Partition Table:[0m
+[0;32mI (49) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (56) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (62) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (69) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (75) boot: End of partition table[0m
+[0;32mI (79) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=274d4h (160980) map[0m
+[0;32mI (144) esp_image: segment 1: paddr=000374fc vaddr=3ffb0000 size=047bch ( 18364) load[0m
+[0;32mI (151) esp_image: segment 2: paddr=0003bcc0 vaddr=40080000 size=04358h ( 17240) load[0m
+[0;32mI (158) esp_image: segment 3: paddr=00040020 vaddr=400d0020 size=afd0ch (720140) map[0m
+[0;32mI (415) esp_image: segment 4: paddr=000efd34 vaddr=40084358 size=13888h ( 80008) load[0m
+[0;32mI (448) esp_image: segment 5: paddr=001035c4 vaddr=50000000 size=00028h (    40) load[0m
+[0;32mI (460) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (460) boot: Disabling RNG early entropy source...[0m
+[0;32mI (471) cpu_start: Multicore app[0m
+[0;32mI (479) cpu_start: GPIO 3 and 1 are used as console UART I/O pins[0m
+[0;32mI (479) cpu_start: Pro cpu start user code[0m
+[0;32mI (479) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (481) app_init: Application information:[0m
+[0;32mI (485) app_init: Project name:     display-module[0m
+[0;32mI (489) app_init: App version:      6f29cc3-dirty[0m
+[0;32mI (494) app_init: Compile time:     May 24 2026 17:54:42[0m
+[0;32mI (499) app_init: ELF file SHA256:  107fcb678...[0m
+[0;32mI (503) app_init: ESP-IDF:          v6.0.1[0m
+[0;32mI (507) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (511) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (515) efuse_init: Chip rev:         v3.1[0m
+[0;32mI (519) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (525) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (530) heap_init: At 3FFCA870 len 00015790 (85 KiB): DRAM[0m
+[0;32mI (535) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (541) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (546) heap_init: At 40097BE0 len 00008420 (33 KiB): IRAM[0m
+[0;32mI (553) spi_flash: detected chip: generic[0m
+[0;32mI (555) spi_flash: flash io: dio[0m
+[0;33mW (558) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (572) main_task: Started on CPU0[0m
+[0;32mI (582) main_task: Calling app_main()[0m
+[0;32mI (582) lcd: Turn off LCD backlight[0m
+[0;32mI (582) lcd: Initialize SPI bus[0m
+[0;32mI (582) lcd: Install panel IO[0m
+[0;32mI (582) lcd: Install ST7789 panel driver[0m
+[0;32mI (702) lcd: Turn on backlight[0m
+[0;32mI (702) lcd: Initialize LVGL[0m
+[0;32mI (762) network: Read device MAC address[0m
+[0;32mI (762) network: MAC Address: D4, E9, F4, ED, 89, 70[0m
+
+[0;32mI (762) network: Initialize NVS[0m
+[0;32mI (792) wifi:wifi driver task: 3ffd273c, prio:23, stack:6656, core=0[0m
+[0;32mI (792) wifi:wifi firmware version: b37c951[0m
+[0;32mI (792) wifi:wifi certification version: v7.0[0m
+[0;32mI (792) wifi:config NVS flash: enabled[0m
+[0;32mI (792) wifi:config nano formatting: disabled[0m
+[0;32mI (802) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (802) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (812) wifi:Init management short buffer num: 32[0m
+[0;32mI (812) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (822) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (822) wifi:Init static rx buffer num: 10[0m
+[0;32mI (822) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (832) wifi_init: rx ba win: 6[0m
+[0;32mI (832) wifi_init: accept mbox: 6[0m
+[0;32mI (832) wifi_init: tcpip mbox: 32[0m
+[0;32mI (842) wifi_init: udp mbox: 6[0m
+[0;32mI (842) wifi_init: tcp mbox: 6[0m
+[0;32mI (842) wifi_init: tcp tx win: 5760[0m
+[0;32mI (852) wifi_init: tcp rx win: 5760[0m
+[0;32mI (852) wifi_init: tcp mss: 1440[0m
+[0;32mI (852) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (862) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (862) phy_init: phy_version 4863,a3a4459,Oct 28 2025,14:30:06[0m
+[0;32mI (942) phy_init: Saving new calibration data due to checksum failure or outdated calibration data, mode(0)[0m
+[0;32mI (972) wifi:mode : sta (d4:e9:f4:ed:89:70)[0m
+[0;32mI (972) wifi:enable tsf[0m
+[0;32mI (972) network: Wifi init using channel 1[0m
+[0;32mI (972) ESPNOW: espnow [version: 2.0] init[0m
+[0;32mI (1352) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (1352) network: Received from 1, Temp: 23.85, Humid: 49.70[0m
+[0;32mI (2392) network: Received from 1, Temp: 23.88, Humid: 49.70[0m
+[0;32mI (2392) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (3432) network: Received from 1, Temp: 23.88, Humid: 49.70[0m
+[0;32mI (3432) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (4472) network: Received from 1, Temp: 23.88, Humid: 49.65[0m
+[0;32mI (4472) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (5512) network: Received from 1, Temp: 23.87, Humid: 49.66[0m
+[0;32mI (5512) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (6552) network: Received from 1, Temp: 23.86, Humid: 49.68[0m
+[0;32mI (6552) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (7592) network: Received from 1, Temp: 23.85, Humid: 49.68[0m
+[0;32mI (7592) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (8632) network: Received from 1, Temp: 23.86, Humid: 49.66[0m
+[0;32mI (8632) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (9672) network: Received from 1, Temp: 23.85, Humid: 49.65[0m
+[0;32mI (9672) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (10712) network: Received from 1, Temp: 23.86, Humid: 49.68[0m
+[0;32mI (10712) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (11752) network: Received from 1, Temp: 23.89, Humid: 49.81[0m
+[0;32mI (11752) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (12792) network: Received from 1, Temp: 23.86, Humid: 50.08[0m
+[0;32mI (12792) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (13832) network: Received from 1, Temp: 23.86, Humid: 50.38[0m
+[0;32mI (13832) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (14872) network: Received from 1, Temp: 23.87, Humid: 50.55[0m
+[0;32mI (14872) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (15912) network: Received from 1, Temp: 23.87, Humid: 50.57[0m
+[0;32mI (15912) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (16952) network: Received from 1, Temp: 23.86, Humid: 50.60[0m
+[0;32mI (16952) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (17992) network: Received from 1, Temp: 23.88, Humid: 50.70[0m
+[0;32mI (17992) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (19032) network: Received from 1, Temp: 23.90, Humid: 50.81[0m
+[0;32mI (19032) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (20072) network: Received from 1, Temp: 23.90, Humid: 50.87[0m
+[0;32mI (20072) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (21112) network: Received from 1, Temp: 23.89, Humid: 50.90[0m
+[0;32mI (21112) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (22152) network: Received from 1, Temp: 23.91, Humid: 50.88[0m
+[0;32mI (22152) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (23192) network: Received from 1, Temp: 23.92, Humid: 50.88[0m
+[0;32mI (23192) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (24232) network: Received from 1, Temp: 23.92, Humid: 50.86[0m
+[0;32mI (24232) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (25272) network: Received from 1, Temp: 23.92, Humid: 50.82[0m
+[0;32mI (25272) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (26312) network: Received from 1, Temp: 23.92, Humid: 50.71[0m
+[0;32mI (26312) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (27352) network: Received from 1, Temp: 23.93, Humid: 50.64[0m
+[0;32mI (27352) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (28392) network: Received from 1, Temp: 23.94, Humid: 50.59[0m
+[0;32mI (28392) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (29432) network: Received from 1, Temp: 23.92, Humid: 50.48[0m
+[0;32mI (29432) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (30472) network: Received from 1, Temp: 23.91, Humid: 50.40[0m
+[0;32mI (30472) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (31512) network: Received from 1, Temp: 23.91, Humid: 50.32[0m
+[0;32mI (31512) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (32552) network: Received from 1, Temp: 23.92, Humid: 50.26[0m
+[0;32mI (32552) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (33592) network: Received from 1, Temp: 23.96, Humid: 50.18[0m
+[0;32mI (33592) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (34632) network: Received from 1, Temp: 23.94, Humid: 50.10[0m
+[0;32mI (34632) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (35672) network: Received from 1, Temp: 23.95, Humid: 50.02[0m
+[0;32mI (35672) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (36712) network: Received from 1, Temp: 23.91, Humid: 50.00[0m
+[0;32mI (36712) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (37752) network: Received from 1, Temp: 23.94, Humid: 49.95[0m
+[0;32mI (37752) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (38792) network: Received from 1, Temp: 23.95, Humid: 49.90[0m
+[0;32mI (38792) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (39832) network: Received from 1, Temp: 23.94, Humid: 49.87[0m
+[0;32mI (39832) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (40872) network: Received from 1, Temp: 23.94, Humid: 49.86[0m
+[0;32mI (40872) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (41912) network: Received from 1, Temp: 23.95, Humid: 49.82[0m
+[0;32mI (41912) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (42952) network: Received from 1, Temp: 23.94, Humid: 49.79[0m
+[0;32mI (42952) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (43992) network: Received from 1, Temp: 23.94, Humid: 49.77[0m
+[0;32mI (43992) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (45032) network: Received from 1, Temp: 23.93, Humid: 49.73[0m
+[0;32mI (45032) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (46072) network: Received from 1, Temp: 23.93, Humid: 49.69[0m
+[0;32mI (46072) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (47112) network: Received from 1, Temp: 23.91, Humid: 49.68[0m
+[0;32mI (47112) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (48152) network: Received from 1, Temp: 23.89, Humid: 49.65[0m
+[0;32mI (48152) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (49192) network: Received from 1, Temp: 23.89, Humid: 49.65[0m
+[0;32mI (49192) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (50232) network: Received from 1, Temp: 23.89, Humid: 49.64[0m
+[0;32mI (50232) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (51272) network: Received from 1, Temp: 23.88, Humid: 49.60[0m
+[0;32mI (51272) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (52312) network: Received from 1, Temp: 23.88, Humid: 49.61[0m
+[0;32mI (52312) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (53352) network: Received from 1, Temp: 23.87, Humid: 49.58[0m
+[0;32mI (53352) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (54392) network: Received from 1, Temp: 23.86, Humid: 49.62[0m
+[0;32mI (54392) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (55432) network: Received from 1, Temp: 23.84, Humid: 49.62[0m
+[0;32mI (55432) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (56472) network: Received from 1, Temp: 23.86, Humid: 49.60[0m
+[0;32mI (56472) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (57512) network: Received from 1, Temp: 23.86, Humid: 49.59[0m
+[0;32mI (57512) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (58552) network: Received from 1, Temp: 23.87, Humid: 49.60[0m
+[0;32mI (58552) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (59592) network: Received from 1, Temp: 23.85, Humid: 49.58[0m
+[0;32mI (59592) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (60632) network: Received from 1, Temp: 23.83, Humid: 49.59[0m
+[0;32mI (60632) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (61672) network: Received from 1, Temp: 23.83, Humid: 49.59[0m
+[0;32mI (61672) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (62712) network: Received from 1, Temp: 23.84, Humid: 49.58[0m
+[0;32mI (62712) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (63752) network: Received from 1, Temp: 23.83, Humid: 49.60[0m
+[0;32mI (63752) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (64792) network: Received from 1, Temp: 23.81, Humid: 49.60[0m
+[0;32mI (64792) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (65832) network: Received from 1, Temp: 23.84, Humid: 49.63[0m
+[0;32mI (65832) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (66872) network: Received from 1, Temp: 23.83, Humid: 49.63[0m
+[0;32mI (66872) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (67902) network: Received from 1, Temp: 23.83, Humid: 49.66[0m
+[0;32mI (67902) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (68942) network: Received from 1, Temp: 23.81, Humid: 49.67[0m
+[0;32mI (68942) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (69992) network: Received from 1, Temp: 23.83, Humid: 49.70[0m
+[0;32mI (69992) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (71032) network: Received from 1, Temp: 23.85, Humid: 49.75[0m
+[0;32mI (71022) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (72062) network: Received from 1, Temp: 23.85, Humid: 49.78[0m
+[0;32mI (72062) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (73102) network: Received from 1, Temp: 23.87, Humid: 49.79[0m
+[0;32mI (73102) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (74142) network: Received from 1, Temp: 23.88, Humid: 49.85[0m
+[0;32mI (74142) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (75192) network: Received from 1, Temp: 23.88, Humid: 49.85[0m
+[0;32mI (75192) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (76222) network: Received from 1, Temp: 23.88, Humid: 49.90[0m
+[0;32mI (76222) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (77262) network: Received from 1, Temp: 23.87, Humid: 49.91[0m
+[0;32mI (77262) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (78302) network: Received from 1, Temp: 23.89, Humid: 49.89[0m
+[0;32mI (78302) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (79352) network: Received from 1, Temp: 23.86, Humid: 49.88[0m
+[0;32mI (79352) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (80382) network: Received from 1, Temp: 23.88, Humid: 49.90[0m
+[0;32mI (80382) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (81432) network: Received from 1, Temp: 23.86, Humid: 49.89[0m
+[0;32mI (81432) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (82462) network: Received from 1, Temp: 23.86, Humid: 49.94[0m
+[0;32mI (82462) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (83502) network: Received from 1, Temp: 23.86, Humid: 49.89[0m
+[0;32mI (83502) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (84542) network: Received from 1, Temp: 23.87, Humid: 49.86[0m
+[0;32mI (84542) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (85592) network: Received from 1, Temp: 23.86, Humid: 49.86[0m
+[0;32mI (85592) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (86622) network: Received from 1, Temp: 23.87, Humid: 49.85[0m
+[0;32mI (86622) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (87662) network: Received from 1, Temp: 23.88, Humid: 49.83[0m
+[0;32mI (87662) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (88702) network: Received from 1, Temp: 23.88, Humid: 49.84[0m
+[0;32mI (88702) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (89752) network: Received from 1, Temp: 23.88, Humid: 49.78[0m
+[0;32mI (89752) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (90782) network: Received from 1, Temp: 23.88, Humid: 49.82[0m
+[0;32mI (90782) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (91822) network: Received from 1, Temp: 23.89, Humid: 49.85[0m
+[0;32mI (91822) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (92862) network: Received from 1, Temp: 23.88, Humid: 49.80[0m
+[0;32mI (92862) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (93902) network: Received from 1, Temp: 23.90, Humid: 49.83[0m
+[0;32mI (93902) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (94942) network: Received from 1, Temp: 23.89, Humid: 49.84[0m
+[0;32mI (94942) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (95982) network: Received from 1, Temp: 23.89, Humid: 49.82[0m
+[0;32mI (95982) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (97022) network: Received from 1, Temp: 23.89, Humid: 49.81[0m
+[0;32mI (97022) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (98062) network: Received from 1, Temp: 23.91, Humid: 49.79[0m
+[0;32mI (98062) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (99102) network: Received from 1, Temp: 23.90, Humid: 49.79[0m
+[0;32mI (99102) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (100152) network: Received from 1, Temp: 23.88, Humid: 49.76[0m
+[0;32mI (100152) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (101182) network: Received from 1, Temp: 23.90, Humid: 49.75[0m
+[0;32mI (101182) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (102232) network: Received from 1, Temp: 23.89, Humid: 49.70[0m
+[0;32mI (102232) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (103262) network: Received from 1, Temp: 23.89, Humid: 49.70[0m
+[0;32mI (103262) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (104302) network: Received from 1, Temp: 23.88, Humid: 49.70[0m
+[0;32mI (104302) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (105342) network: Received from 1, Temp: 23.90, Humid: 49.69[0m
+[0;32mI (105342) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (106382) network: Received from 1, Temp: 23.89, Humid: 49.69[0m
+[0;32mI (106382) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (107422) network: Received from 1, Temp: 23.91, Humid: 49.66[0m
+[0;32mI (107422) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (108472) network: Received from 1, Temp: 23.86, Humid: 49.65[0m
+[0;32mI (108472) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (109502) network: Received from 1, Temp: 23.87, Humid: 49.64[0m
+[0;32mI (109502) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (110542) network: Received from 1, Temp: 23.87, Humid: 49.65[0m
+[0;32mI (110542) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (111582) network: Received from 1, Temp: 23.87, Humid: 49.63[0m
+[0;32mI (111582) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (112622) network: Received from 1, Temp: 23.88, Humid: 49.60[0m
+[0;32mI (112622) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (113662) network: Received from 1, Temp: 23.85, Humid: 49.64[0m
+[0;32mI (113662) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (114702) network: Received from 1, Temp: 23.86, Humid: 49.62[0m
+[0;32mI (114702) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (115752) network: Received from 1, Temp: 23.86, Humid: 49.61[0m
+[0;32mI (115752) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (116782) network: Received from 1, Temp: 23.88, Humid: 49.61[0m
+[0;32mI (116782) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (117822) network: Received from 1, Temp: 23.88, Humid: 49.57[0m
+[0;32mI (117822) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (118862) network: Received from 1, Temp: 23.86, Humid: 49.59[0m
+[0;32mI (118862) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (119902) network: Received from 1, Temp: 23.89, Humid: 49.58[0m
+[0;32mI (119902) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (120942) network: Received from 1, Temp: 23.87, Humid: 49.57[0m
+[0;32mI (120942) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (121992) network: Received from 1, Temp: 23.88, Humid: 49.55[0m
+[0;32mI (121992) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (123022) network: Received from 1, Temp: 23.88, Humid: 49.60[0m
+[0;32mI (123022) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (124062) network: Received from 1, Temp: 23.89, Humid: 49.58[0m
+[0;32mI (124062) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (125102) network: Received from 1, Temp: 23.86, Humid: 49.58[0m
+[0;32mI (125102) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (126142) network: Received from 1, Temp: 23.89, Humid: 49.59[0m
+[0;32mI (126142) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (127182) network: Received from 1, Temp: 23.89, Humid: 49.57[0m
+[0;32mI (127182) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (128222) network: Received from 1, Temp: 23.89, Humid: 49.54[0m
+[0;32mI (128222) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (129262) network: Received from 1, Temp: 23.90, Humid: 49.59[0m
+[0;32mI (129262) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (130302) network: Received from 1, Temp: 23.88, Humid: 49.55[0m
+[0;32mI (130302) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (131342) network: Received from 1, Temp: 23.91, Humid: 49.65[0m
+[0;32mI (131342) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (132382) network: Received from 1, Temp: 23.88, Humid: 49.68[0m
+[0;32mI (132382) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (133432) network: Received from 1, Temp: 23.90, Humid: 49.69[0m
+[0;32mI (133432) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (134472) network: Received from 1, Temp: 23.92, Humid: 49.73[0m
+[0;32mI (134472) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (135502) network: Received from 1, Temp: 23.90, Humid: 49.85[0m
+[0;32mI (135502) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (136542) network: Received from 1, Temp: 23.90, Humid: 49.88[0m
+[0;32mI (136542) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (137582) network: Received from 1, Temp: 23.91, Humid: 49.92[0m
+[0;32mI (137582) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (138622) network: Received from 1, Temp: 23.91, Humid: 49.96[0m
+[0;32mI (138622) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (139662) network: Received from 1, Temp: 23.91, Humid: 49.99[0m
+[0;32mI (139662) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (140702) network: Received from 1, Temp: 23.89, Humid: 49.99[0m
+[0;32mI (140702) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (141752) network: Received from 1, Temp: 23.89, Humid: 49.99[0m
+[0;32mI (141752) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (142782) network: Received from 1, Temp: 23.89, Humid: 50.00[0m
+[0;32mI (142782) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (143822) network: Received from 1, Temp: 23.85, Humid: 49.96[0m
+[0;32mI (143822) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (144862) network: Received from 1, Temp: 23.89, Humid: 49.95[0m
+[0;32mI (144862) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (145902) network: Received from 1, Temp: 23.87, Humid: 49.92[0m
+[0;32mI (145902) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (146942) network: Received from 1, Temp: 23.86, Humid: 49.90[0m
+[0;32mI (146942) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (147982) network: Received from 1, Temp: 23.83, Humid: 49.92[0m
+[0;32mI (147982) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (149022) network: Received from 1, Temp: 23.86, Humid: 49.92[0m
+[0;32mI (149022) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (150062) network: Received from 1, Temp: 23.85, Humid: 49.95[0m
+[0;32mI (150062) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (151102) network: Received from 1, Temp: 23.83, Humid: 49.98[0m
+[0;32mI (151102) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (152142) network: Received from 1, Temp: 23.82, Humid: 49.93[0m
+[0;32mI (152142) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (153182) network: Received from 1, Temp: 23.83, Humid: 49.93[0m
+[0;32mI (153182) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (154222) network: Received from 1, Temp: 23.83, Humid: 49.89[0m
+[0;32mI (154222) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (155272) network: Received from 1, Temp: 23.80, Humid: 49.86[0m
+[0;32mI (155272) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (156302) network: Received from 1, Temp: 23.84, Humid: 49.84[0m
+[0;32mI (156302) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (157342) network: Received from 1, Temp: 23.83, Humid: 49.81[0m
+[0;32mI (157342) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (158382) network: Received from 1, Temp: 23.85, Humid: 49.83[0m
+[0;32mI (158382) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (159422) network: Received from 1, Temp: 23.85, Humid: 49.79[0m
+[0;32mI (159422) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (160462) network: Received from 1, Temp: 23.84, Humid: 49.80[0m
+[0;32mI (160462) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (161502) network: Received from 1, Temp: 23.82, Humid: 49.78[0m
+[0;32mI (161502) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (162542) network: Received from 1, Temp: 23.83, Humid: 49.75[0m
+[0;32mI (162542) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (163582) network: Received from 1, Temp: 23.82, Humid: 49.71[0m
+[0;32mI (163582) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (164622) network: Received from 1, Temp: 23.80, Humid: 49.70[0m
+[0;32mI (164622) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (165662) network: Received from 1, Temp: 23.77, Humid: 49.70[0m
+[0;32mI (165662) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (166702) network: Received from 1, Temp: 23.79, Humid: 49.70[0m
+[0;32mI (166702) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (167752) network: Received from 1, Temp: 23.78, Humid: 49.72[0m
+[0;32mI (167752) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (168782) network: Received from 1, Temp: 23.81, Humid: 49.73[0m
+[0;32mI (168782) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (169822) network: Received from 1, Temp: 23.78, Humid: 49.72[0m
+[0;32mI (169822) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (170862) network: Received from 1, Temp: 23.80, Humid: 49.70[0m
+[0;32mI (170862) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (171902) network: Received from 1, Temp: 23.81, Humid: 49.71[0m
+[0;32mI (171902) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (172942) network: Received from 1, Temp: 23.81, Humid: 49.70[0m
+[0;32mI (172942) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (173982) network: Received from 1, Temp: 23.80, Humid: 49.70[0m
+[0;32mI (173982) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (175032) network: Received from 1, Temp: 23.83, Humid: 49.73[0m
+[0;32mI (175032) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (176062) network: Received from 1, Temp: 23.81, Humid: 49.66[0m
+[0;32mI (176062) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (177102) network: Received from 1, Temp: 23.81, Humid: 49.69[0m
+[0;32mI (177102) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (178142) network: Received from 1, Temp: 23.80, Humid: 49.69[0m
+[0;32mI (178142) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (179182) network: Received from 1, Temp: 23.80, Humid: 49.70[0m
+[0;32mI (179182) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (180222) network: Received from 1, Temp: 23.77, Humid: 49.70[0m
+[0;32mI (180222) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (181262) network: Received from 1, Temp: 23.78, Humid: 49.69[0m
+[0;32mI (181262) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (182302) network: Received from 1, Temp: 23.80, Humid: 49.74[0m
+[0;32mI (182302) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (183342) network: Received from 1, Temp: 23.78, Humid: 49.70[0m
+[0;32mI (183342) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (184382) network: Received from 1, Temp: 23.80, Humid: 49.66[0m
+[0;32mI (184382) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (185422) network: Received from 1, Temp: 23.79, Humid: 49.70[0m
+[0;32mI (185422) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (186462) network: Received from 1, Temp: 23.79, Humid: 49.71[0m
+[0;32mI (186462) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (187502) network: Received from 1, Temp: 23.80, Humid: 49.73[0m
+[0;32mI (187502) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (188552) network: Received from 1, Temp: 23.80, Humid: 49.70[0m
+[0;32mI (188552) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (189582) network: Received from 1, Temp: 23.79, Humid: 49.70[0m
+[0;32mI (189582) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (190622) network: Received from 1, Temp: 23.79, Humid: 49.70[0m
+[0;32mI (190622) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (191662) network: Received from 1, Temp: 23.79, Humid: 49.67[0m
+[0;32mI (191662) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (192702) network: Received from 1, Temp: 23.79, Humid: 49.70[0m
+[0;32mI (192702) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (193742) network: Received from 1, Temp: 23.80, Humid: 49.70[0m
+[0;32mI (193742) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (194782) network: Received from 1, Temp: 23.80, Humid: 49.68[0m
+[0;32mI (194782) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (195822) network: Received from 1, Temp: 23.83, Humid: 49.71[0m
+[0;32mI (195822) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (196862) network: Received from 1, Temp: 23.81, Humid: 49.68[0m
+[0;32mI (196862) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (197902) network: Received from 1, Temp: 23.82, Humid: 49.67[0m
+[0;32mI (197902) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (198942) network: Received from 1, Temp: 23.83, Humid: 49.66[0m
+[0;32mI (198942) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (199982) network: Received from 1, Temp: 23.81, Humid: 49.70[0m
+[0;32mI (199982) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (201022) network: Received from 1, Temp: 23.80, Humid: 49.65[0m
+[0;32mI (201022) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (202062) network: Received from 1, Temp: 23.81, Humid: 49.66[0m
+[0;32mI (202062) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (203102) network: Received from 1, Temp: 23.81, Humid: 49.66[0m
+[0;32mI (203102) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (204142) network: Received from 1, Temp: 23.80, Humid: 49.64[0m
+[0;32mI (204142) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (205182) network: Received from 1, Temp: 23.79, Humid: 49.64[0m
+[0;32mI (205182) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (206222) network: Received from 1, Temp: 23.79, Humid: 49.64[0m
+[0;32mI (206222) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (207262) network: Received from 1, Temp: 23.81, Humid: 49.64[0m
+[0;32mI (207262) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (208302) network: Received from 1, Temp: 23.79, Humid: 49.67[0m
+[0;32mI (208302) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (209342) network: Received from 1, Temp: 23.80, Humid: 49.67[0m
+[0;32mI (209342) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (210382) network: Received from 1, Temp: 23.79, Humid: 49.62[0m
+[0;32mI (210382) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (211422) network: Received from 1, Temp: 23.77, Humid: 49.66[0m
+[0;32mI (211422) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (212462) network: Received from 1, Temp: 23.80, Humid: 49.66[0m
+[0;32mI (212462) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (213502) network: Received from 1, Temp: 23.78, Humid: 49.65[0m
+[0;32mI (213502) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (214542) network: Received from 1, Temp: 23.81, Humid: 49.69[0m
+[0;32mI (214542) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (215582) network: Received from 1, Temp: 23.78, Humid: 49.63[0m
+[0;32mI (215582) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (216622) network: Received from 1, Temp: 23.77, Humid: 49.64[0m
+[0;32mI (216622) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (217662) network: Received from 1, Temp: 23.77, Humid: 49.63[0m
+[0;32mI (217662) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (218712) network: Received from 1, Temp: 23.75, Humid: 49.61[0m
+[0;32mI (218712) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (219742) network: Received from 1, Temp: 23.74, Humid: 49.66[0m
+[0;32mI (219742) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (220782) network: Received from 1, Temp: 23.75, Humid: 49.66[0m
+[0;32mI (220782) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (221832) network: Received from 1, Temp: 23.76, Humid: 49.68[0m
+[0;32mI (221832) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (222862) network: Received from 1, Temp: 23.75, Humid: 49.66[0m
+[0;32mI (222862) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (223902) network: Received from 1, Temp: 23.75, Humid: 49.69[0m
+[0;32mI (223902) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (224942) network: Received from 1, Temp: 23.73, Humid: 49.69[0m
+[0;32mI (224942) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (225982) network: Received from 1, Temp: 23.75, Humid: 49.69[0m
+[0;32mI (225982) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (227022) network: Received from 1, Temp: 23.73, Humid: 49.71[0m
+[0;32mI (227022) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (228062) network: Received from 1, Temp: 23.73, Humid: 49.71[0m
+[0;32mI (228062) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (229102) network: Received from 1, Temp: 23.74, Humid: 49.68[0m
+[0;32mI (229102) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (230142) network: Received from 1, Temp: 23.73, Humid: 49.73[0m
+[0;32mI (230142) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (231182) network: Received from 1, Temp: 23.75, Humid: 49.74[0m
+[0;32mI (231182) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (232222) network: Received from 1, Temp: 23.74, Humid: 49.73[0m
+[0;32mI (232222) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (233262) network: Received from 1, Temp: 23.74, Humid: 49.74[0m
+[0;32mI (233262) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (234302) network: Received from 1, Temp: 23.73, Humid: 49.73[0m
+[0;32mI (234302) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (235342) network: Received from 1, Temp: 23.72, Humid: 49.72[0m
+[0;32mI (235342) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (236382) network: Received from 1, Temp: 23.73, Humid: 49.71[0m
+[0;32mI (236382) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (237422) network: Received from 1, Temp: 23.71, Humid: 49.73[0m
+[0;32mI (237422) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (238462) network: Received from 1, Temp: 23.71, Humid: 49.76[0m
+[0;32mI (238462) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (239502) network: Received from 1, Temp: 23.70, Humid: 49.76[0m
+[0;32mI (239502) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (240542) network: Received from 1, Temp: 23.69, Humid: 49.78[0m
+[0;32mI (240542) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (241582) network: Received from 1, Temp: 23.68, Humid: 49.77[0m
+[0;32mI (241582) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (242622) network: Received from 1, Temp: 23.69, Humid: 49.77[0m
+[0;32mI (242622) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (243662) network: Received from 1, Temp: 23.69, Humid: 49.78[0m
+[0;32mI (243662) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (244702) network: Received from 1, Temp: 23.67, Humid: 49.77[0m
+[0;32mI (244702) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (245752) network: Received from 1, Temp: 23.66, Humid: 49.80[0m
+[0;32mI (245752) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (246782) network: Received from 1, Temp: 23.69, Humid: 49.79[0m
+[0;32mI (246782) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (247822) network: Received from 1, Temp: 23.69, Humid: 49.83[0m
+[0;32mI (247822) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (248862) network: Received from 1, Temp: 23.66, Humid: 49.79[0m
+[0;32mI (248862) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (249902) network: Received from 1, Temp: 23.67, Humid: 49.80[0m
+[0;32mI (249902) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (250942) network: Received from 1, Temp: 23.66, Humid: 49.79[0m
+[0;32mI (250942) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (251982) network: Received from 1, Temp: 23.68, Humid: 49.83[0m
+[0;32mI (251982) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (253022) network: Received from 1, Temp: 23.69, Humid: 49.84[0m
+[0;32mI (253022) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (254062) network: Received from 1, Temp: 23.67, Humid: 49.84[0m
+[0;32mI (254062) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (255102) network: Received from 1, Temp: 23.67, Humid: 49.83[0m
+[0;32mI (255102) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (256142) network: Received from 1, Temp: 23.69, Humid: 49.84[0m
+[0;32mI (256142) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (257182) network: Received from 1, Temp: 23.70, Humid: 49.85[0m
+[0;32mI (257182) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (258222) network: Received from 1, Temp: 23.69, Humid: 49.85[0m
+[0;32mI (258222) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (259262) network: Received from 1, Temp: 23.70, Humid: 49.82[0m
+[0;32mI (259262) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (260302) network: Received from 1, Temp: 23.71, Humid: 49.85[0m
+[0;32mI (260302) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (261342) network: Received from 1, Temp: 23.72, Humid: 49.82[0m
+[0;32mI (261342) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (262382) network: Received from 1, Temp: 23.71, Humid: 49.81[0m
+[0;32mI (262382) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (263422) network: Received from 1, Temp: 23.71, Humid: 49.83[0m
+[0;32mI (263422) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (264462) network: Received from 1, Temp: 23.72, Humid: 49.82[0m
+[0;32mI (264462) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (265502) network: Received from 1, Temp: 23.72, Humid: 49.82[0m
+[0;32mI (265502) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (266542) network: Received from 1, Temp: 23.71, Humid: 49.82[0m
+[0;32mI (266542) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (267582) network: Received from 1, Temp: 23.69, Humid: 49.81[0m
+[0;32mI (267582) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (268622) network: Received from 1, Temp: 23.69, Humid: 49.79[0m
+[0;32mI (268622) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (269662) network: Received from 1, Temp: 23.71, Humid: 49.80[0m
+[0;32mI (269662) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (270702) network: Received from 1, Temp: 23.73, Humid: 49.81[0m
+[0;32mI (270702) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (271742) network: Received from 1, Temp: 23.70, Humid: 49.81[0m
+[0;32mI (271742) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (272782) network: Received from 1, Temp: 23.71, Humid: 49.81[0m
+[0;32mI (272782) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (273822) network: Received from 1, Temp: 23.71, Humid: 49.80[0m
+[0;32mI (273822) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (274872) network: Received from 1, Temp: 23.72, Humid: 49.79[0m
+[0;32mI (274872) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (275902) network: Received from 1, Temp: 23.72, Humid: 49.82[0m
+[0;32mI (275902) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (276942) network: Received from 1, Temp: 23.73, Humid: 49.83[0m
+[0;32mI (276942) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (277982) network: Received from 1, Temp: 23.71, Humid: 49.80[0m
+[0;32mI (277982) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (279022) network: Received from 1, Temp: 23.73, Humid: 49.79[0m
+[0;32mI (279022) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (280062) network: Received from 1, Temp: 23.72, Humid: 49.78[0m
+[0;32mI (280062) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (281102) network: Received from 1, Temp: 23.73, Humid: 49.80[0m
+[0;32mI (281102) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (282142) network: Received from 1, Temp: 23.72, Humid: 49.81[0m
+[0;32mI (282142) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (283182) network: Received from 1, Temp: 23.72, Humid: 49.79[0m
+[0;32mI (283182) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (284222) network: Received from 1, Temp: 23.73, Humid: 49.78[0m
+[0;32mI (284222) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (285262) network: Received from 1, Temp: 23.72, Humid: 49.77[0m
+[0;32mI (285262) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (286302) network: Received from 1, Temp: 23.74, Humid: 49.78[0m
+[0;32mI (286302) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (287342) network: Received from 1, Temp: 23.71, Humid: 49.82[0m
+[0;32mI (287342) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (288382) network: Received from 1, Temp: 23.73, Humid: 49.79[0m
+[0;32mI (288382) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (289422) network: Received from 1, Temp: 23.71, Humid: 49.78[0m
+[0;32mI (289422) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (290462) network: Received from 1, Temp: 23.73, Humid: 49.80[0m
+[0;32mI (290462) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (291502) network: Received from 1, Temp: 23.73, Humid: 49.78[0m
+[0;32mI (291502) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (292542) network: Received from 1, Temp: 23.73, Humid: 49.75[0m
+[0;32mI (292542) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (293582) network: Received from 1, Temp: 23.73, Humid: 49.76[0m
+[0;32mI (293582) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (294622) network: Received from 1, Temp: 23.73, Humid: 49.76[0m
+[0;32mI (294622) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (295662) network: Received from 1, Temp: 23.74, Humid: 49.74[0m
+[0;32mI (295662) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (296702) network: Received from 1, Temp: 23.72, Humid: 49.77[0m
+[0;32mI (296702) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (297742) network: Received from 1, Temp: 23.70, Humid: 49.76[0m
+[0;32mI (297742) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (298782) network: Received from 1, Temp: 23.70, Humid: 49.76[0m
+[0;32mI (298782) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (299822) network: Received from 1, Temp: 23.72, Humid: 49.74[0m
+[0;32mI (299822) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (300862) network: Received from 1, Temp: 23.72, Humid: 49.73[0m
+[0;32mI (300862) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (301912) network: Received from 1, Temp: 23.71, Humid: 49.77[0m
+[0;32mI (301912) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (302942) network: Received from 1, Temp: 23.71, Humid: 49.75[0m
+[0;32mI (302942) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (303982) network: Received from 1, Temp: 23.72, Humid: 49.76[0m
+[0;32mI (303982) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (305022) network: Received from 1, Temp: 23.69, Humid: 49.76[0m
+[0;32mI (305022) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (306062) network: Received from 1, Temp: 23.70, Humid: 49.77[0m
+[0;32mI (306062) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (307102) network: Received from 1, Temp: 23.71, Humid: 49.76[0m
+[0;32mI (307102) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (308142) network: Received from 1, Temp: 23.70, Humid: 49.77[0m
+[0;32mI (308142) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (309182) network: Received from 1, Temp: 23.70, Humid: 49.75[0m
+[0;32mI (309182) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (310222) network: Received from 1, Temp: 23.67, Humid: 49.77[0m
+[0;32mI (310222) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (311262) network: Received from 1, Temp: 23.69, Humid: 49.78[0m
+[0;32mI (311262) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (312302) network: Received from 1, Temp: 23.70, Humid: 49.80[0m
+[0;32mI (312302) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (313342) network: Received from 1, Temp: 23.69, Humid: 49.79[0m
+[0;32mI (313342) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (314382) network: Received from 1, Temp: 23.69, Humid: 49.81[0m
+[0;32mI (314382) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (315422) network: Received from 1, Temp: 23.66, Humid: 49.79[0m
+[0;32mI (315422) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (316462) network: Received from 1, Temp: 23.70, Humid: 49.81[0m
+[0;32mI (316462) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (317502) network: Received from 1, Temp: 23.69, Humid: 49.80[0m
+[0;32mI (317502) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (318542) network: Received from 1, Temp: 23.68, Humid: 49.82[0m
+[0;32mI (318542) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (319582) network: Received from 1, Temp: 23.69, Humid: 49.82[0m
+[0;32mI (319582) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (320622) network: Received from 1, Temp: 23.66, Humid: 49.81[0m
+[0;32mI (320622) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (321662) network: Received from 1, Temp: 23.65, Humid: 49.81[0m
+[0;32mI (321662) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (322702) network: Received from 1, Temp: 23.67, Humid: 49.83[0m
+[0;32mI (322702) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (323742) network: Received from 1, Temp: 23.70, Humid: 49.83[0m
+[0;32mI (323742) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (324782) network: Received from 1, Temp: 23.70, Humid: 49.84[0m
+[0;32mI (324782) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (325822) network: Received from 1, Temp: 23.70, Humid: 49.86[0m
+[0;32mI (325822) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (326862) network: Received from 1, Temp: 23.73, Humid: 49.87[0m
+[0;32mI (326862) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (327902) network: Received from 1, Temp: 23.70, Humid: 49.89[0m
+[0;32mI (327902) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (328942) network: Received from 1, Temp: 23.72, Humid: 49.84[0m
+[0;32mI (328942) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (329982) network: Received from 1, Temp: 23.73, Humid: 49.87[0m
+[0;32mI (329982) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (331022) network: Received from 1, Temp: 23.72, Humid: 49.90[0m
+[0;32mI (331022) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (332062) network: Received from 1, Temp: 23.73, Humid: 49.88[0m
+[0;32mI (332062) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (333102) network: Received from 1, Temp: 23.74, Humid: 49.84[0m
+[0;32mI (333102) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (334142) network: Received from 1, Temp: 23.75, Humid: 49.87[0m
+[0;32mI (334142) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (335182) network: Received from 1, Temp: 23.72, Humid: 49.85[0m
+[0;32mI (335182) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (336222) network: Received from 1, Temp: 23.72, Humid: 49.83[0m
+[0;32mI (336222) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (337262) network: Received from 1, Temp: 23.72, Humid: 49.81[0m
+[0;32mI (337262) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (338302) network: Received from 1, Temp: 23.72, Humid: 49.81[0m
+[0;32mI (338302) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (339342) network: Received from 1, Temp: 23.72, Humid: 49.82[0m
+[0;32mI (339342) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (340382) network: Received from 1, Temp: 23.74, Humid: 49.84[0m
+[0;32mI (340382) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (341422) network: Received from 1, Temp: 23.71, Humid: 49.84[0m
+[0;32mI (341422) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (342462) network: Received from 1, Temp: 23.70, Humid: 49.83[0m
+[0;32mI (342462) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (343502) network: Received from 1, Temp: 23.70, Humid: 49.82[0m
+[0;32mI (343502) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (344542) network: Received from 1, Temp: 23.72, Humid: 49.83[0m
+[0;32mI (344542) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (345582) network: Received from 1, Temp: 23.71, Humid: 49.84[0m
+[0;32mI (345582) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (346622) network: Received from 1, Temp: 23.72, Humid: 49.84[0m
+[0;32mI (346622) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (347662) network: Received from 1, Temp: 23.70, Humid: 49.86[0m
+[0;32mI (347662) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (348702) network: Received from 1, Temp: 23.74, Humid: 49.89[0m
+[0;32mI (348702) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (349742) network: Received from 1, Temp: 23.74, Humid: 49.87[0m
+[0;32mI (349742) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (350782) network: Received from 1, Temp: 23.72, Humid: 49.88[0m
+[0;32mI (350782) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (351822) network: Received from 1, Temp: 23.72, Humid: 49.88[0m
+[0;32mI (351822) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (352862) network: Received from 1, Temp: 23.73, Humid: 49.88[0m
+[0;32mI (352862) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (353902) network: Received from 1, Temp: 23.72, Humid: 49.91[0m
+[0;32mI (353902) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (354942) network: Received from 1, Temp: 23.72, Humid: 49.89[0m
+[0;32mI (354942) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (355982) network: Received from 1, Temp: 23.73, Humid: 49.92[0m
+[0;32mI (355982) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (357022) network: Received from 1, Temp: 23.73, Humid: 49.90[0m
+[0;32mI (357022) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (358062) network: Received from 1, Temp: 23.74, Humid: 49.90[0m
+[0;32mI (358062) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (359102) network: Received from 1, Temp: 23.70, Humid: 49.89[0m
+[0;32mI (359102) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (360142) network: Received from 1, Temp: 23.72, Humid: 49.89[0m
+[0;32mI (360142) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (361182) network: Received from 1, Temp: 23.72, Humid: 49.88[0m
+[0;32mI (361182) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (362222) network: Received from 1, Temp: 23.72, Humid: 49.88[0m
+[0;32mI (362222) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (363262) network: Received from 1, Temp: 23.73, Humid: 49.90[0m
+[0;32mI (363262) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (364302) network: Received from 1, Temp: 23.75, Humid: 49.88[0m
+[0;32mI (364302) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (365342) network: Received from 1, Temp: 23.75, Humid: 49.90[0m
+[0;32mI (365342) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (366382) network: Received from 1, Temp: 23.76, Humid: 49.89[0m
+[0;32mI (366382) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (367422) network: Received from 1, Temp: 23.75, Humid: 49.87[0m
+[0;32mI (367422) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (368462) network: Received from 1, Temp: 23.76, Humid: 49.87[0m
+[0;32mI (368462) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (369502) network: Received from 1, Temp: 23.77, Humid: 49.84[0m
+[0;32mI (369502) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (370542) network: Received from 1, Temp: 23.77, Humid: 49.81[0m
+[0;32mI (370542) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (371582) network: Received from 1, Temp: 23.76, Humid: 49.81[0m
+[0;32mI (371582) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (372622) network: Received from 1, Temp: 23.78, Humid: 49.83[0m
+[0;32mI (372622) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (373662) network: Received from 1, Temp: 23.77, Humid: 49.80[0m
+[0;32mI (373662) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (374702) network: Received from 1, Temp: 23.77, Humid: 49.77[0m
+[0;32mI (374702) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (375742) network: Received from 1, Temp: 23.76, Humid: 49.76[0m
+[0;32mI (375742) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (376782) network: Received from 1, Temp: 23.78, Humid: 49.76[0m
+[0;32mI (376782) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (377822) network: Received from 1, Temp: 23.79, Humid: 49.74[0m
+[0;32mI (377822) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (378862) network: Received from 1, Temp: 23.80, Humid: 49.78[0m
+[0;32mI (378862) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (379902) network: Received from 1, Temp: 23.81, Humid: 49.79[0m
+[0;32mI (379902) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (380942) network: Received from 1, Temp: 23.79, Humid: 49.86[0m
+[0;32mI (380942) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (381982) network: Received from 1, Temp: 23.81, Humid: 49.93[0m
+[0;32mI (381982) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (383022) network: Received from 1, Temp: 23.80, Humid: 49.92[0m
+[0;32mI (383022) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (384062) network: Received from 1, Temp: 23.81, Humid: 49.96[0m
+[0;32mI (384062) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (385102) network: Received from 1, Temp: 23.83, Humid: 50.03[0m
+[0;32mI (385102) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (386142) network: Received from 1, Temp: 23.87, Humid: 50.04[0m
+[0;32mI (386142) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (387182) network: Received from 1, Temp: 23.86, Humid: 50.04[0m
+[0;32mI (387182) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (388222) network: Received from 1, Temp: 23.86, Humid: 50.02[0m
+[0;32mI (388222) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (389262) network: Received from 1, Temp: 23.85, Humid: 50.05[0m
+[0;32mI (389262) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (390302) network: Received from 1, Temp: 23.89, Humid: 50.00[0m
+[0;32mI (390302) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (391342) network: Received from 1, Temp: 23.87, Humid: 49.99[0m
+[0;32mI (391342) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (392382) network: Received from 1, Temp: 23.87, Humid: 49.96[0m
+[0;32mI (392382) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (393422) network: Received from 1, Temp: 23.86, Humid: 49.91[0m
+[0;32mI (393422) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (394462) network: Received from 1, Temp: 23.86, Humid: 49.86[0m
+[0;32mI (394462) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (395502) network: Received from 1, Temp: 23.89, Humid: 49.85[0m
+[0;32mI (395502) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (396542) network: Received from 1, Temp: 23.87, Humid: 49.83[0m
+[0;32mI (396542) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (397582) network: Received from 1, Temp: 23.88, Humid: 49.82[0m
+[0;32mI (397582) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (398622) network: Received from 1, Temp: 23.88, Humid: 49.82[0m
+[0;32mI (398622) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (399662) network: Received from 1, Temp: 23.88, Humid: 49.87[0m
+[0;32mI (399662) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (400702) network: Received from 1, Temp: 23.90, Humid: 49.83[0m
+[0;32mI (400702) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (401742) network: Received from 1, Temp: 23.88, Humid: 49.87[0m
+[0;32mI (401742) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (402782) network: Received from 1, Temp: 23.87, Humid: 49.95[0m
+[0;32mI (402782) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (403822) network: Received from 1, Temp: 23.88, Humid: 49.96[0m
+[0;32mI (403822) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (404862) network: Received from 1, Temp: 23.87, Humid: 49.92[0m
+[0;32mI (404862) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (405902) network: Received from 1, Temp: 23.88, Humid: 49.92[0m
+[0;32mI (405902) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (406942) network: Received from 1, Temp: 23.86, Humid: 49.87[0m
+[0;32mI (406942) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (407982) network: Received from 1, Temp: 23.87, Humid: 49.86[0m
+[0;32mI (407982) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (409022) network: Received from 1, Temp: 23.89, Humid: 49.83[0m
+[0;32mI (409022) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (410062) network: Received from 1, Temp: 23.88, Humid: 49.75[0m
+[0;32mI (410062) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (411102) network: Received from 1, Temp: 23.91, Humid: 49.76[0m
+[0;32mI (411102) network: RX from 8C:94:DF:45:87:DC[0m
+[0;32mI (412142) network: Received from 1, Temp: 23.87, Humid: 49.71[0m
+[0;32mI (412142) network: RX from 8C:94:DF:45:87:DC[0m

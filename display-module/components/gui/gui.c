@@ -1,159 +1,153 @@
+/**
+ * @file gui.c
+ * @brief LVGL GUI implementation for the CYD
+ * 
+ * Displays temperature and humidity from up to 6 different sensor nodes
+ */
+
 #include <stdio.h>
+
+#include "freertos/FreeRTOS.h"
+#include "freertos/queue.h"
+
+#include "esp_err.h"
 
 #include "lvgl.h"
 
+#include "sensor_data.h"
 #include "gui.h"
 
-typedef struct {
-    lv_obj_t *label;
-    int node_id;
-    int temp;
-    int humid;
-} disp_data_t;
+// Global node data
+sensor_data_t g_nodes[6];
 
+// ─────────────────────────────────────────────────────────────
+// TIMER CALLBACK
+// ─────────────────────────────────────────────────────────────
+// takes data received from network, parse and format it into display data
+// the display data formatted into buf and updates the lvgl label
 static void timer_cb(lv_timer_t *timer)
 {
-    disp_data_t *data = timer->user_data;
+    disp_data_t *disp_data = timer->user_data;
+    sensor_data_t *node = &g_nodes[disp_data->node_id - 1];
+    char buf[64];
 
-    // Placeholder for future updates
-    data->temp++;
-    data->humid++;
+    uint32_t now_ms = xTaskGetTickCount() * portTICK_PERIOD_MS;
 
-    // temp and humid cannot be greater than 100
-    if (data->temp > 100 || data->humid > 100) {
-        data->temp = 0;
-        data->humid = 0;
+    // If 10s has passed and no new data is received then display no information
+    if (!node->valid || (now_ms - node->last_update_ms > 10000)) {
+        snprintf(buf, sizeof(buf), "Temp: --.-C\nHumid: --.-%%");
+    } 
+    // If new display is received then continuously update information
+    else {
+        snprintf(buf, sizeof(buf), "Temp: %.1fC\nHumid: %.1f%%", node->temp,node->humid);
     }
 
-    static char buf[64];
-    snprintf(buf, sizeof(buf), "Node %d: temp: %d humid: %d", data->node_id, data->temp, data->humid);
-    lv_label_set_text(data->label, buf);
+    // Update lvgl label
+    lv_label_set_text(disp_data->label, buf);
 }
 
-void gui_init(void)
-{
-    // ─────────────────────────────────────────────────────────────
-    // CREATE LVGL OBJECTS
-    // ─────────────────────────────────────────────────────────────
-    
+// ─────────────────────────────────────────────────────────────
+// NODE CARD
+// ─────────────────────────────────────────────────────────────
+// Array for all the nodes data
+static disp_data_t s_node_data[6];
+// Function to create a block to display the information on screen
+static void create_node_card(lv_obj_t *parent, int node_id, int col, int row)
+{   
+    // Alignment of the cards
+    int x = 5 + col * 120;
+    int y = 57 + row * 70;
 
+    // Card
+    lv_obj_t *card = lv_obj_create(parent);
+    lv_obj_set_pos(card, x, y);
+    lv_obj_set_size(card, CARD_W, CARD_H);
+    lv_obj_clear_flag(card, LV_OBJ_FLAG_SCROLLABLE);
+
+    lv_obj_set_style_bg_color(card, lv_color_hex(COLOR_GREEN), LV_PART_MAIN);
+    lv_obj_set_style_border_color(card, lv_color_hex(COLOR_WHITE), LV_PART_MAIN);
+    lv_obj_set_style_border_width(card, 1, LV_PART_MAIN);
+    lv_obj_set_style_radius(card, 8, LV_PART_MAIN);
+    lv_obj_set_style_pad_all(card, 6, LV_PART_MAIN);
+
+    // title
+    static char title_buf[6][10];
+
+    snprintf(title_buf[node_id - 1], sizeof(title_buf[0]), "ROOM %d", node_id);
+
+    lv_obj_t *title = lv_label_create(card);
+    lv_label_set_text(title, title_buf[node_id - 1]);
+    lv_obj_set_style_text_font(title, &lv_font_montserrat_20, LV_PART_MAIN);
+    lv_obj_set_style_text_color(title, lv_color_hex(COLOR_WHITE), LV_PART_MAIN);
+    lv_obj_align(title, LV_ALIGN_TOP_LEFT, 0, -2);
+
+    // value label
+    lv_obj_t *val = lv_label_create(card);
+
+    lv_label_set_text(val, "Temp: --.-C\nHumid: --.-%");
+    lv_obj_set_style_text_font(val, &lv_font_montserrat_14, LV_PART_MAIN);
+    lv_obj_set_style_text_color(val, lv_color_hex(COLOR_WHITE), LV_PART_MAIN);
+    lv_obj_align(val, LV_ALIGN_TOP_LEFT, 0, 22);
+
+    // timer
+    s_node_data[node_id - 1].label = val;
+    s_node_data[node_id - 1].node_id = node_id;
+
+    // timer task: call the timer call back to update the lvgl label every 1s
+    lv_timer_create(timer_cb, 1000, &s_node_data[node_id - 1]);
+}
+
+esp_err_t gui_init(void)
+{
+    // Screen background
+    lv_obj_set_style_bg_color(lv_scr_act(), lv_color_hex(COLOR_WHITE), LV_PART_MAIN);
+
+    // ─────────────────────────────────────────────────────────────
+    // HEADER
+    // ─────────────────────────────────────────────────────────────
     lv_obj_t *hdr = lv_obj_create(lv_scr_act());
-    lv_obj_set_pos(hdr, 10, 10);
-    lv_obj_set_size(hdr, 220, 40);
-    lv_obj_set_style_bg_color(hdr, lv_color_hex(0xFF0000), LV_PART_MAIN);
+    lv_obj_set_pos(hdr, 0, 0);
+    lv_obj_set_size(hdr, 240, 42);
     lv_obj_clear_flag(hdr, LV_OBJ_FLAG_SCROLLABLE);
+    lv_obj_set_style_bg_color(hdr, lv_color_hex(COLOR_RED), LV_PART_MAIN);
+    lv_obj_set_style_border_width(hdr, 0, LV_PART_MAIN);
+    lv_obj_set_style_radius(hdr, 0, LV_PART_MAIN);
 
     lv_obj_t *hdr_label = lv_label_create(hdr);
-    lv_label_set_text(hdr_label, "HOME");
+    lv_label_set_text(hdr_label, "HOME MONITOR");
     lv_obj_set_style_text_font(hdr_label, &lv_font_montserrat_24, LV_PART_MAIN);
-    lv_obj_set_style_text_color(hdr_label, lv_color_hex(0xFFFFFF), LV_PART_MAIN);
+    lv_obj_set_style_text_color(hdr_label, lv_color_hex(COLOR_WHITE), LV_PART_MAIN);
     lv_obj_center(hdr_label);
 
-    lv_obj_t *node1 = lv_obj_create(lv_scr_act());
-    lv_obj_set_pos(node1, 10, 60);
-    lv_obj_set_size(node1, 220, 35);
-
-    lv_obj_t *node1_label = lv_label_create(node1);
-    lv_label_set_text(node1_label, "Node 1: Temp: 0 Humid: 0");
-    lv_obj_align(node1_label, LV_ALIGN_LEFT_MID, -10, 0);
-    lv_obj_clear_flag(node1, LV_OBJ_FLAG_SCROLLABLE);
-
-    static disp_data_t node1_data;
-    node1_data.label = node1_label;
-    node1_data.node_id = 1;
-    node1_data.temp = 0;
-    node1_data.humid = 0;
-
-    lv_timer_create(timer_cb, 1000, &node1_data);
-
-    lv_obj_t *node2 = lv_obj_create(lv_scr_act());
-    lv_obj_set_pos(node2, 10, 100);
-    lv_obj_set_size(node2, 220, 35);
-
-    lv_obj_t *node2_label = lv_label_create(node2);
-    lv_label_set_text(node2_label, "Node 2: Temp: 0 Humid: 0");
-    lv_obj_align(node2_label, LV_ALIGN_LEFT_MID, -10, 0);
-    lv_obj_clear_flag(node2, LV_OBJ_FLAG_SCROLLABLE);
-
-    static disp_data_t node2_data;
-    node2_data.label = node2_label;
-    node2_data.node_id = 2;
-    node2_data.temp = 0;
-    node2_data.humid = 0;
-
-    lv_timer_create(timer_cb, 1000, &node2_data);
+    // ─────────────────────────────────────────────────────────────
+    // NODE CARDS
     // ─────────────────────────────────────────────────────────────
 
-    lv_obj_t *node3 = lv_obj_create(lv_scr_act());
-    lv_obj_set_pos(node3, 10, 140);
-    lv_obj_set_size(node3, 220, 35);
+    create_node_card(lv_scr_act(), 1, 0, 0);
+    create_node_card(lv_scr_act(), 2, 1, 0);
 
-    lv_obj_t *node3_label = lv_label_create(node3);
-    lv_label_set_text(node3_label, "Node 3: Temp: 0 Humid: 0");
-    lv_obj_align(node3_label, LV_ALIGN_LEFT_MID, -10, 0);
-    lv_obj_clear_flag(node3, LV_OBJ_FLAG_SCROLLABLE);
+    create_node_card(lv_scr_act(), 3, 0, 1);
+    create_node_card(lv_scr_act(), 4, 1, 1);
 
-    static disp_data_t node3_data;
-    node3_data.label = node3_label;
-    node3_data.node_id = 3;
-    node3_data.temp = 0;
-    node3_data.humid = 0;
-
-    lv_timer_create(timer_cb, 1000, &node3_data);
-    // ─────────────────────────────────────────────────────────────
-
-    lv_obj_t *node4 = lv_obj_create(lv_scr_act());
-    lv_obj_set_pos(node4, 10, 180);
-    lv_obj_set_size(node4, 220, 35);
-
-    lv_obj_t *node4_label = lv_label_create(node4);
-    lv_label_set_text(node4_label, "Node 4: Temp: 0 Humid: 0");
-    lv_obj_align(node4_label, LV_ALIGN_LEFT_MID, -10, 0);
-    lv_obj_clear_flag(node4, LV_OBJ_FLAG_SCROLLABLE);
-
-    static disp_data_t node4_data;
-    node4_data.label = node4_label;
-    node4_data.node_id = 4;
-    node4_data.temp = 0;
-    node4_data.humid = 0;
-
-    lv_timer_create(timer_cb, 1000, &node4_data);
+    create_node_card(lv_scr_act(), 5, 0, 2);
+    create_node_card(lv_scr_act(), 6, 1, 2);
 
     // ─────────────────────────────────────────────────────────────
-
-    lv_obj_t *node5 = lv_obj_create(lv_scr_act());
-    lv_obj_set_pos(node5, 10, 220);
-    lv_obj_set_size(node5, 220, 35);
-
-    lv_obj_t *node5_label = lv_label_create(node5);
-    lv_label_set_text(node5_label, "Node 5: Temp: 0 Humid: 0");
-    lv_obj_align(node5_label, LV_ALIGN_LEFT_MID, -10, 0);
-    lv_obj_clear_flag(node5, LV_OBJ_FLAG_SCROLLABLE);
-
-    static disp_data_t node5_data;
-    node5_data.label = node5_label;
-    node5_data.node_id = 5;
-    node5_data.temp = 0;
-    node5_data.humid = 0;
-
-    lv_timer_create(timer_cb, 1000, &node5_data);
-
+    // FOOTER
     // ─────────────────────────────────────────────────────────────
+    lv_obj_t *ftr = lv_obj_create(lv_scr_act());
+    lv_obj_set_pos(ftr, 0, 278);
+    lv_obj_set_size(ftr, 240, 42);
+    lv_obj_clear_flag(ftr, LV_OBJ_FLAG_SCROLLABLE);
+    lv_obj_set_style_bg_color(ftr, lv_color_hex(COLOR_BLUE), LV_PART_MAIN);
+    lv_obj_set_style_border_width(ftr, 0, LV_PART_MAIN);
+    lv_obj_set_style_radius(ftr, 0, LV_PART_MAIN);
 
-    lv_obj_t *node6 = lv_obj_create(lv_scr_act());
-    lv_obj_set_pos(node6, 10, 260);
-    lv_obj_set_size(node6, 220, 35);
+    lv_obj_t *ftr_label = lv_label_create(ftr);
+    lv_label_set_text(ftr_label, "Status: ACTIVE"); // Place holder for future updates
+    lv_obj_set_style_text_font(ftr_label,&lv_font_montserrat_14, LV_PART_MAIN);
+    lv_obj_set_style_text_color(ftr_label, lv_color_hex(COLOR_WHITE), LV_PART_MAIN);
+    lv_obj_align(ftr_label, LV_ALIGN_BOTTOM_LEFT, 0, 0);
 
-    lv_obj_t *node6_label = lv_label_create(node6);
-    lv_label_set_text(node6_label, "Node 6: Temp: 0 Humid: 0");
-    lv_obj_align(node6_label, LV_ALIGN_LEFT_MID, -10, 0);
-    lv_obj_clear_flag(node6, LV_OBJ_FLAG_SCROLLABLE);
-
-    static disp_data_t node6_data;
-    node6_data.label = node6_label;
-    node6_data.node_id = 6;
-    node6_data.temp = 0;
-    node6_data.humid = 0;
-
-    lv_timer_create(timer_cb, 1000, &node6_data);
+    return ESP_OK;
 }

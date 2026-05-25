@@ -203,7 +203,9 @@ $<TARGET_FILE:idf::lcd>
 $<TARGET_FILE:__idf_esp_lcd>
 $<TARGET_FILE:__idf_lvgl__lvgl>
 $<TARGET_FILE:idf::gui>
+$<TARGET_FILE:idf::network>
+$<TARGET_FILE:__idf_gui>
 $<TARGET_FILE:idf::main>
 $<TARGET_FILE:__idf_lcd>
-$<TARGET_FILE:__idf_gui>
 $<TARGET_FILE:__idf_driver>
+$<TARGET_FILE:__idf_network>

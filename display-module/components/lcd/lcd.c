@@ -1,15 +1,21 @@
+/**
+ * @file lcd.c
+ * @brief Initiate the lcd screen to display
+ * 
+ * This file contains all the functions neccessary to inititate and control the lcd screen
+ */
 
 #include <stdio.h>
-
-#include "esp_lcd_panel_io.h"
-#include "esp_lcd_panel_ops.h"
-#include "esp_lcd_panel_st7789.h"
 
 #include "driver/gpio.h"
 #include "driver/spi_master.h"
 
 #include "esp_err.h"
 #include "esp_log.h"
+
+#include "esp_lcd_panel_io.h"
+#include "esp_lcd_panel_ops.h"
+#include "esp_lcd_panel_st7789.h"
 
 #include "lvgl.h"
 
@@ -18,8 +24,10 @@
 static const char *TAG = "lcd";
 
 // ─────────────────────────────────────────────────────────────
-// LVGL
+// LVGL FLUSH
 // ─────────────────────────────────────────────────────────────
+// Transfers rendered LVGL pixel data from the draw buffer
+// to the LCD display using the ESP LCD driver.
 static void lvgl_flush_cb(lv_disp_drv_t *disp_drv, const lv_area_t *area, lv_color_t *color_p)
 {
     esp_lcd_panel_handle_t lcd_panel_handle = disp_drv->user_data;
@@ -27,7 +35,10 @@ static void lvgl_flush_cb(lv_disp_drv_t *disp_drv, const lv_area_t *area, lv_col
     lv_disp_flush_ready(disp_drv);
 }
 
-void lcd_init(void)
+// ─────────────────────────────────────────────────────────────
+// LCD Initiation
+// ─────────────────────────────────────────────────────────────
+esp_err_t lcd_init(void)
 {
     // ─────────────────────────────────────────────────────────────
     // BACKLIGHT GPIO CONFIGURATION
@@ -83,7 +94,7 @@ void lcd_init(void)
     esp_lcd_panel_handle_t lcd_panel_handle = NULL; // <---- May need to be move outside to global later
     esp_lcd_panel_dev_config_t panel_config = {
         .reset_gpio_num = LCD_RST,
-        .rgb_ele_order = LCD_RGB_ELEMENT_ORDER_RGB,
+        .rgb_ele_order = LCD_RGB_ELEMENT_ORDER_BGR,
         .bits_per_pixel = 16,
     };
 
@@ -93,6 +104,7 @@ void lcd_init(void)
     ESP_ERROR_CHECK(esp_lcd_panel_invert_color(lcd_panel_handle, false));
     ESP_ERROR_CHECK(esp_lcd_panel_mirror(lcd_panel_handle, false, false));
     ESP_ERROR_CHECK(esp_lcd_panel_disp_on_off(lcd_panel_handle, true));
+    
 
     // Turn backlight on
     ESP_LOGI(TAG, "Turn on backlight");
@@ -107,10 +119,10 @@ void lcd_init(void)
     // ─────────────────────────────────────────────────────────────
     // LVGL DRAW BUFFER
     // ─────────────────────────────────────────────────────────────
-    static lv_color_t lv_buf1[LCD_WIDTH * 40];
-    static lv_color_t lv_buf2[LCD_WIDTH * 40];
+    static lv_color_t lv_buf1[LCD_WIDTH * BUFFER_SIZE];
+    static lv_color_t lv_buf2[LCD_WIDTH * BUFFER_SIZE];
     static lv_disp_draw_buf_t draw_buf;
-    lv_disp_draw_buf_init(&draw_buf, lv_buf1, lv_buf2, LCD_WIDTH * 40);
+    lv_disp_draw_buf_init(&draw_buf, lv_buf1, lv_buf2, LCD_WIDTH * BUFFER_SIZE);
 
     // ─────────────────────────────────────────────────────────────
     // LVGL DISPLAY DRIVER
@@ -123,4 +135,6 @@ void lcd_init(void)
     disp_drv.draw_buf = &draw_buf;
     disp_drv.user_data = lcd_panel_handle;
     lv_disp_drv_register(&disp_drv);
+
+    return ESP_OK;
 }

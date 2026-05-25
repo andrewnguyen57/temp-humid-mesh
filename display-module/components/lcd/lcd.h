@@ -1,7 +1,15 @@
+/**
+ * @file lcd.h
+ * @brief LCD interface
+ * 
+ * Contains all the pin definitions and APIs for the lcd display 
+ */
+
 #pragma once
 
 // Prototypes
 //void cycle_colours(uint16_t *buffer, uint16_t *colours, const char *colour_names[], esp_lcd_panel_handle_t panel_handle, int n);
+esp_err_t lcd_init(void);
 
 // Using SPI2
 #define LCD_HOST SPI2_HOST
@@ -29,6 +37,7 @@
 #define LCD_WIDTH   240
 #define LCD_HEIGHT  320
 
+// LCD Clock Speed
 #define LCD_PIXEL_CLOCK_HZ (40 * 1000 * 1000)
 #define LCD_BL_ON 1
 #define LCD_BL_OFF !LCD_BL_ON
@@ -46,5 +55,6 @@
 // Colours
 #define NUM_COLOURS 8
 
-// Prototypes
-void lcd_init(void);
+// Buffers
+#define BUFFER_SIZE 80
+

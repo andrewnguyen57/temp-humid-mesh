@@ -203,7 +203,9 @@ C:/Dev/Projects/ESP32/temp-humid-mesh/display-module/build/esp-idf/lcd/liblcd.a
 C:/Dev/Projects/ESP32/temp-humid-mesh/display-module/build/esp-idf/esp_lcd/libesp_lcd.a
 C:/Dev/Projects/ESP32/temp-humid-mesh/display-module/build/esp-idf/lvgl__lvgl/liblvgl__lvgl.a
 C:/Dev/Projects/ESP32/temp-humid-mesh/display-module/build/esp-idf/gui/libgui.a
+C:/Dev/Projects/ESP32/temp-humid-mesh/display-module/build/esp-idf/network/libnetwork.a
+C:/Dev/Projects/ESP32/temp-humid-mesh/display-module/build/esp-idf/gui/libgui.a
 C:/Dev/Projects/ESP32/temp-humid-mesh/display-module/build/esp-idf/main/libmain.a
 C:/Dev/Projects/ESP32/temp-humid-mesh/display-module/build/esp-idf/lcd/liblcd.a
-C:/Dev/Projects/ESP32/temp-humid-mesh/display-module/build/esp-idf/gui/libgui.a
 C:/Dev/Projects/ESP32/temp-humid-mesh/display-module/build/esp-idf/driver/libdriver.a
+C:/Dev/Projects/ESP32/temp-humid-mesh/display-module/build/esp-idf/network/libnetwork.a

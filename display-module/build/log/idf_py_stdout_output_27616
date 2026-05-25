@@ -1,0 +1,258 @@
+Command: C:\Espressif\tools\python\v6.0.1\venv\Scripts\python.exe C:\esp\v6.0.1\esp-idf\tools/idf_monitor.py -p COM9 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 C:\Dev\Projects\ESP32\temp-humid-mesh\display-module\build\display-module.elf C:\Dev\Projects\ESP32\temp-humid-mesh\display-module\build\bootloader\bootloader.elf --force-color -m 'C:\Espressif\tools\python\v6.0.1\venv\Scripts\python.exe' 'C:\esp\v6.0.1\esp-idf\tools\idf.py'
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0040,len:6272
+load:0x40078000,len:15848
+load:0x40080400,len:3920
+entry 0x40080644
+[0;32mI (27) boot: ESP-IDF v6.0.1 2nd stage bootloader[0m
+[0;32mI (27) boot: compile time May 24 2026 17:54:58[0m
+[0;32mI (27) boot: Multicore bootloader[0m
+[0;32mI (29) boot: chip revision: v3.1[0m
+[0;32mI (32) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (35) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (39) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (42) boot: Enabling RNG early entropy source...[0m
+[0;32mI (47) boot: Partition Table:[0m
+[0;32mI (49) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (56) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (62) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (69) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (75) boot: End of partition table[0m
+[0;32mI (79) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=2c054h (180308) map[0m
+[0;32mI (150) esp_image: segment 1: paddr=0003c07c vaddr=3ffb0000 size=03f9ch ( 16284) load[0m
+[0;32mI (157) esp_image: segment 2: paddr=00040020 vaddr=400d0020 size=afcech (720108) map[0m
+[0;32mI (414) esp_image: segment 3: paddr=000efd14 vaddr=3ffb3f9c size=00820h (  2080) load[0m
+[0;32mI (415) esp_image: segment 4: paddr=000f053c vaddr=40080000 size=17be0h ( 97248) load[0m
+[0;32mI (457) esp_image: segment 5: paddr=00108124 vaddr=50000000 size=00028h (    40) load[0m
+[0;32mI (469) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (469) boot: Disabling RNG early entropy source...[0m
+[0;32mI (480) cpu_start: Multicore app[0m
+[0;32mI (489) cpu_start: GPIO 3 and 1 are used as console UART I/O pins[0m
+[0;32mI (489) cpu_start: Pro cpu start user code[0m
+[0;32mI (489) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (491) app_init: Application information:[0m
+[0;32mI (495) app_init: Project name:     display-module[0m
+[0;32mI (499) app_init: App version:      6f29cc3-dirty[0m
+[0;32mI (504) app_init: Compile time:     May 24 2026 19:04:34[0m
+[0;32mI (509) app_init: ELF file SHA256:  f43f71dd9...[0m
+[0;32mI (513) app_init: ESP-IDF:          v6.0.1[0m
+[0;32mI (517) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (521) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (525) efuse_init: Chip rev:         v3.1[0m
+[0;32mI (529) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (535) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (540) heap_init: At 3FFD3E60 len 0000C1A0 (48 KiB): DRAM[0m
+[0;32mI (545) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (550) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (556) heap_init: At 40097BE0 len 00008420 (33 KiB): IRAM[0m
+[0;32mI (563) spi_flash: detected chip: generic[0m
+[0;32mI (565) spi_flash: flash io: dio[0m
+[0;33mW (568) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (582) main_task: Started on CPU0[0m
+[0;32mI (592) main_task: Calling app_main()[0m
+[0;32mI (592) lcd: Turn off LCD backlight[0m
+[0;32mI (592) lcd: Initialize SPI bus[0m
+[0;32mI (592) lcd: Install panel IO[0m
+[0;32mI (592) lcd: Install ST7789 panel driver[0m
+[0;32mI (712) lcd: Turn on backlight[0m
+[0;32mI (712) lcd: Initialize LVGL[0m
+[0;32mI (762) network: Read device MAC address[0m
+[0;32mI (762) network: MAC Address: D4, E9, F4, ED, 89, 70[0m
+
+[0;32mI (762) network: Initialize NVS[0m
+[0;32mI (792) wifi:wifi driver task: 3ffdbc64, prio:23, stack:6656, core=0[0m
+[0;32mI (792) wifi:wifi firmware version: b37c951[0m
+[0;32mI (792) wifi:wifi certification version: v7.0[0m
+[0;32mI (792) wifi:config NVS flash: enabled[0m
+[0;32mI (792) wifi:config nano formatting: disabled[0m
+[0;32mI (802) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (802) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (812) wifi:Init management short buffer num: 32[0m
+[0;32mI (812) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (822) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (822) wifi:Init static rx buffer num: 10[0m
+[0;32mI (822) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (832) wifi_init: rx ba win: 6[0m
+[0;32mI (832) wifi_init: accept mbox: 6[0m
+[0;32mI (832) wifi_init: tcpip mbox: 32[0m
+[0;32mI (842) wifi_init: udp mbox: 6[0m
+[0;32mI (842) wifi_init: tcp mbox: 6[0m
+[0;32mI (842) wifi_init: tcp tx win: 5760[0m
+[0;32mI (852) wifi_init: tcp rx win: 5760[0m
+[0;32mI (852) wifi_init: tcp mss: 1440[0m
+[0;32mI (852) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (862) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (862) phy_init: phy_version 4863,a3a4459,Oct 28 2025,14:30:06[0m
+[0;32mI (952) wifi:mode : sta (d4:e9:f4:ed:89:70)[0m
+[0;32mI (952) wifi:enable tsf[0m
+[0;32mI (952) network: Wifi init using channel 1[0m
+[0;32mI (952) ESPNOW: espnow [version: 2.0] init[0m
+[0;32mI (1622) network: Received from node 1, Temp: 23.66, Humid: 52.08[0m
+[0;32mI (2662) network: Received from node 1, Temp: 23.66, Humid: 52.10[0m
+[0;32mI (3702) network: Received from node 1, Temp: 23.66, Humid: 52.10[0m
+[0;32mI (4742) network: Received from node 1, Temp: 23.67, Humid: 52.11[0m
+[0;32mI (5782) network: Received from node 1, Temp: 23.65, Humid: 52.07[0m
+[0;32mI (6822) network: Received from node 1, Temp: 23.67, Humid: 52.11[0m
+[0;32mI (7862) network: Received from node 1, Temp: 23.67, Humid: 52.12[0m
+[0;32mI (8902) network: Received from node 1, Temp: 23.67, Humid: 52.11[0m
+[0;32mI (9942) network: Received from node 1, Temp: 23.68, Humid: 52.10[0m
+[0;32mI (10982) network: Received from node 1, Temp: 23.69, Humid: 52.11[0m
+[0;32mI (12022) network: Received from node 1, Temp: 23.69, Humid: 52.10[0m
+[0;32mI (13062) network: Received from node 1, Temp: 23.69, Humid: 52.10[0m
+[0;32mI (14102) network: Received from node 1, Temp: 23.67, Humid: 52.08[0m
+[0;32mI (15142) network: Received from node 1, Temp: 23.66, Humid: 52.06[0m
+[0;32mI (16182) network: Received from node 1, Temp: 23.66, Humid: 52.04[0m
+[0;32mI (17222) network: Received from node 1, Temp: 23.67, Humid: 52.06[0m
+[0;32mI (18262) network: Received from node 1, Temp: 23.67, Humid: 52.13[0m
+[0;32mI (19302) network: Received from node 1, Temp: 23.68, Humid: 52.17[0m
+[0;32mI (20342) network: Received from node 1, Temp: 23.66, Humid: 52.12[0m
+[0;32mI (21382) network: Received from node 1, Temp: 23.65, Humid: 52.12[0m
+[0;32mI (22422) network: Received from node 1, Temp: 23.65, Humid: 52.13[0m
+[0;32mI (23462) network: Received from node 1, Temp: 23.67, Humid: 52.16[0m
+[0;32mI (24502) network: Received from node 1, Temp: 23.67, Humid: 52.13[0m
+[0;32mI (25542) network: Received from node 1, Temp: 23.68, Humid: 52.10[0m
+[0;32mI (26582) network: Received from node 1, Temp: 23.66, Humid: 52.13[0m
+[0;32mI (27622) network: Received from node 1, Temp: 23.65, Humid: 52.10[0m
+[0;32mI (28662) network: Received from node 1, Temp: 23.66, Humid: 52.13[0m
+[0;32mI (29702) network: Received from node 1, Temp: 23.66, Humid: 52.10[0m
+[0;32mI (30742) network: Received from node 1, Temp: 23.67, Humid: 52.16[0m
+[0;32mI (31782) network: Received from node 1, Temp: 23.67, Humid: 52.19[0m
+[0;32mI (32822) network: Received from node 1, Temp: 23.66, Humid: 52.19[0m
+[0;32mI (33862) network: Received from node 1, Temp: 23.67, Humid: 52.18[0m
+[0;32mI (34902) network: Received from node 1, Temp: 23.67, Humid: 52.16[0m
+[0;32mI (35942) network: Received from node 1, Temp: 23.66, Humid: 52.17[0m
+[0;32mI (36982) network: Received from node 1, Temp: 23.67, Humid: 52.15[0m
+[0;32mI (38022) network: Received from node 1, Temp: 23.67, Humid: 52.13[0m
+[0;32mI (39062) network: Received from node 1, Temp: 23.66, Humid: 52.13[0m
+[0;32mI (40102) network: Received from node 1, Temp: 23.67, Humid: 52.18[0m
+[0;32mI (41142) network: Received from node 1, Temp: 23.70, Humid: 52.13[0m
+[0;32mI (42182) network: Received from node 1, Temp: 23.65, Humid: 52.11[0m
+[0;32mI (43222) network: Received from node 1, Temp: 23.68, Humid: 52.09[0m
+[0;32mI (44262) network: Received from node 1, Temp: 23.66, Humid: 52.09[0m
+[0;32mI (45302) network: Received from node 1, Temp: 23.67, Humid: 52.07[0m
+[0;32mI (46342) network: Received from node 1, Temp: 23.67, Humid: 52.09[0m
+[0;32mI (47382) network: Received from node 1, Temp: 23.69, Humid: 52.06[0m
+[0;32mI (48422) network: Received from node 1, Temp: 23.66, Humid: 52.08[0m
+[0;32mI (49462) network: Received from node 1, Temp: 23.67, Humid: 52.08[0m
+[0;32mI (50502) network: Received from node 1, Temp: 23.69, Humid: 52.08[0m
+[0;32mI (51542) network: Received from node 1, Temp: 23.69, Humid: 52.04[0m
+[0;32mI (52582) network: Received from node 1, Temp: 23.67, Humid: 52.05[0m
+[0;32mI (53622) network: Received from node 1, Temp: 23.71, Humid: 52.07[0m
+[0;32mI (54662) network: Received from node 1, Temp: 23.67, Humid: 52.05[0m
+[0;32mI (55702) network: Received from node 1, Temp: 23.67, Humid: 52.05[0m
+[0;32mI (56742) network: Received from node 1, Temp: 23.68, Humid: 52.04[0m
+[0;32mI (57782) network: Received from node 1, Temp: 23.68, Humid: 52.05[0m
+[0;32mI (58822) network: Received from node 1, Temp: 23.68, Humid: 52.08[0m
+[0;32mI (59862) network: Received from node 1, Temp: 23.69, Humid: 52.04[0m
+[0;32mI (60902) network: Received from node 1, Temp: 23.67, Humid: 52.03[0m
+[0;32mI (61942) network: Received from node 1, Temp: 23.69, Humid: 52.07[0m
+[0;32mI (62982) network: Received from node 1, Temp: 23.71, Humid: 52.04[0m
+[0;32mI (64032) network: Received from node 1, Temp: 23.69, Humid: 52.03[0m
+[0;32mI (65062) network: Received from node 1, Temp: 23.70, Humid: 52.03[0m
+[0;32mI (66102) network: Received from node 1, Temp: 23.69, Humid: 52.03[0m
+[0;32mI (67142) network: Received from node 1, Temp: 23.69, Humid: 52.03[0m
+[0;32mI (68182) network: Received from node 1, Temp: 23.67, Humid: 52.04[0m
+[0;32mI (69222) network: Received from node 1, Temp: 23.69, Humid: 51.99[0m
+[0;32mI (70262) network: Received from node 1, Temp: 23.69, Humid: 52.04[0m
+[0;32mI (71302) network: Received from node 1, Temp: 23.70, Humid: 52.03[0m
+[0;32mI (72342) network: Received from node 1, Temp: 23.72, Humid: 52.02[0m
+[0;32mI (73382) network: Received from node 1, Temp: 23.71, Humid: 52.04[0m
+[0;32mI (74422) network: Received from node 1, Temp: 23.70, Humid: 52.01[0m
+[0;32mI (75462) network: Received from node 1, Temp: 23.70, Humid: 52.03[0m
+[0;32mI (76502) network: Received from node 1, Temp: 23.72, Humid: 52.00[0m
+[0;32mI (77542) network: Received from node 1, Temp: 23.71, Humid: 52.01[0m
+[0;32mI (78582) network: Received from node 1, Temp: 23.68, Humid: 52.00[0m
+[0;32mI (79622) network: Received from node 1, Temp: 23.70, Humid: 52.01[0m
+[0;32mI (80662) network: Received from node 1, Temp: 23.70, Humid: 52.01[0m
+[0;32mI (81702) network: Received from node 1, Temp: 23.70, Humid: 52.03[0m
+[0;32mI (82742) network: Received from node 1, Temp: 23.70, Humid: 52.02[0m
+[0;32mI (83782) network: Received from node 1, Temp: 23.68, Humid: 52.01[0m
+[0;32mI (84822) network: Received from node 1, Temp: 23.68, Humid: 52.01[0m
+[0;32mI (85862) network: Received from node 1, Temp: 23.70, Humid: 52.00[0m
+[0;32mI (86902) network: Received from node 1, Temp: 23.72, Humid: 52.04[0m
+[0;32mI (87942) network: Received from node 1, Temp: 23.70, Humid: 52.00[0m
+[0;32mI (88982) network: Received from node 1, Temp: 23.70, Humid: 52.02[0m
+[0;32mI (90022) network: Received from node 1, Temp: 23.72, Humid: 52.00[0m
+[0;32mI (91062) network: Received from node 1, Temp: 23.72, Humid: 52.01[0m
+[0;32mI (92102) network: Received from node 1, Temp: 23.71, Humid: 51.97[0m
+[0;32mI (93142) network: Received from node 1, Temp: 23.70, Humid: 52.02[0m
+[0;32mI (94182) network: Received from node 1, Temp: 23.70, Humid: 51.99[0m
+[0;32mI (95222) network: Received from node 1, Temp: 23.69, Humid: 52.01[0m
+[0;32mI (96262) network: Received from node 1, Temp: 23.71, Humid: 51.99[0m
+[0;32mI (97302) network: Received from node 1, Temp: 23.70, Humid: 52.02[0m
+[0;32mI (98342) network: Received from node 1, Temp: 23.72, Humid: 52.02[0m
+[0;32mI (99382) network: Received from node 1, Temp: 23.69, Humid: 52.01[0m
+[0;32mI (100422) network: Received from node 1, Temp: 23.70, Humid: 52.00[0m
+[0;32mI (101462) network: Received from node 1, Temp: 23.68, Humid: 51.99[0m
+[0;32mI (102502) network: Received from node 1, Temp: 23.70, Humid: 51.98[0m
+[0;32mI (103542) network: Received from node 1, Temp: 23.71, Humid: 52.01[0m
+[0;32mI (104582) network: Received from node 1, Temp: 23.70, Humid: 52.01[0m
+[0;32mI (105622) network: Received from node 1, Temp: 23.71, Humid: 51.99[0m
+[0;32mI (106662) network: Received from node 1, Temp: 23.70, Humid: 51.97[0m
+[0;32mI (107702) network: Received from node 1, Temp: 23.70, Humid: 52.00[0m
+[0;32mI (108742) network: Received from node 1, Temp: 23.72, Humid: 51.96[0m
+[0;32mI (109782) network: Received from node 1, Temp: 23.71, Humid: 51.96[0m
+[0;32mI (110822) network: Received from node 1, Temp: 23.71, Humid: 51.98[0m
+[0;32mI (111862) network: Received from node 1, Temp: 23.71, Humid: 52.00[0m
+[0;32mI (112902) network: Received from node 1, Temp: 23.72, Humid: 52.02[0m
+[0;32mI (113942) network: Received from node 1, Temp: 23.71, Humid: 51.96[0m
+[0;32mI (114982) network: Received from node 1, Temp: 23.71, Humid: 51.98[0m
+[0;32mI (116022) network: Received from node 1, Temp: 23.73, Humid: 51.97[0m
+[0;32mI (117062) network: Received from node 1, Temp: 23.72, Humid: 51.98[0m
+[0;32mI (118102) network: Received from node 1, Temp: 23.70, Humid: 51.97[0m
+[0;32mI (119142) network: Received from node 1, Temp: 23.71, Humid: 51.97[0m
+[0;32mI (120182) network: Received from node 1, Temp: 23.72, Humid: 51.96[0m
+[0;32mI (121222) network: Received from node 1, Temp: 23.72, Humid: 51.98[0m
+[0;32mI (122262) network: Received from node 1, Temp: 23.71, Humid: 51.99[0m
+[0;32mI (123302) network: Received from node 1, Temp: 23.72, Humid: 51.98[0m
+[0;32mI (124342) network: Received from node 1, Temp: 23.72, Humid: 52.04[0m
+[0;32mI (125382) network: Received from node 1, Temp: 23.71, Humid: 52.00[0m
+[0;32mI (126422) network: Received from node 1, Temp: 23.71, Humid: 52.05[0m
+[0;32mI (127462) network: Received from node 1, Temp: 23.71, Humid: 52.03[0m
+[0;32mI (128502) network: Received from node 1, Temp: 23.71, Humid: 52.02[0m
+[0;32mI (129542) network: Received from node 1, Temp: 23.70, Humid: 52.01[0m
+[0;32mI (130582) network: Received from node 1, Temp: 23.71, Humid: 52.03[0m
+[0;32mI (131622) network: Received from node 1, Temp: 23.71, Humid: 52.05[0m
+[0;32mI (132662) network: Received from node 1, Temp: 23.70, Humid: 52.05[0m
+[0;32mI (133702) network: Received from node 1, Temp: 23.70, Humid: 52.02[0m
+[0;32mI (134742) network: Received from node 1, Temp: 23.72, Humid: 52.05[0m
+[0;32mI (135782) network: Received from node 1, Temp: 23.72, Humid: 52.04[0m
+[0;32mI (136822) network: Received from node 1, Temp: 23.69, Humid: 52.03[0m
+[0;32mI (137862) network: Received from node 1, Temp: 23.70, Humid: 52.08[0m
+[0;32mI (138902) network: Received from node 1, Temp: 23.70, Humid: 52.05[0m
+[0;32mI (139942) network: Received from node 1, Temp: 23.71, Humid: 52.07[0m
+[0;32mI (140982) network: Received from node 1, Temp: 23.69, Humid: 52.07[0m
+[0;32mI (142022) network: Received from node 1, Temp: 23.70, Humid: 52.05[0m
+[0;32mI (143062) network: Received from node 1, Temp: 23.70, Humid: 52.07[0m
+[0;32mI (144102) network: Received from node 1, Temp: 23.71, Humid: 52.07[0m
+[0;32mI (145142) network: Received from node 1, Temp: 23.69, Humid: 52.04[0m
+[0;32mI (146182) network: Received from node 1, Temp: 23.71, Humid: 52.05[0m
+[0;32mI (147222) network: Received from node 1, Temp: 23.70, Humid: 52.06[0m
+[0;32mI (148262) network: Received from node 1, Temp: 23.69, Humid: 52.04[0m
+[0;32mI (149302) network: Received from node 1, Temp: 23.70, Humid: 52.05[0m
+[0;32mI (150342) network: Received from node 1, Temp: 23.70, Humid: 52.05[0m
+[0;32mI (151382) network: Received from node 1, Temp: 23.71, Humid: 52.03[0m
+[0;32mI (152422) network: Received from node 1, Temp: 23.72, Humid: 52.09[0m
+[0;32mI (153462) network: Received from node 1, Temp: 23.70, Humid: 52.04[0m
+[0;32mI (154502) network: Received from node 1, Temp: 23.72, Humid: 52.04[0m
+[0;32mI (155542) network: Received from node 1, Temp: 23.70, Humid: 52.05[0m
+[0;32mI (156582) network: Received from node 1, Temp: 23.72, Humid: 52.04[0m
+[0;32mI (157622) network: Received from node 1, Temp: 23.70, Humid: 52.07[0m
+[0;32mI (158662) network: Received from node 1, Temp: 23.72, Humid: 52.19[0m
+[0;32mI (159702) network: Received from node 1, Temp: 23.72, Humid: 52.40[0m
+[0;32mI (160742) network: Received from node 1, Temp: 23.73, Humid: 52.51[0m
+[0;32mI (161782) network: Received from node 1, Temp: 23.72, Humid: 52.61[0m
+[0;32mI (162822) network: Received from node 1, Temp: 23.72, Humid: 52.68[0m
+[0;32mI (163862) network: Received from node 1, Temp: 23.73, Humid: 52.75[0m
+[0;32mI (164902) network: Received from node 1, Temp: 23.72, Humid: 52.71[0m
+[0;32mI (165942) network: Received from node 1, Temp: 23.71, Humid: 52.70[0m
+[0;32mI (166982) network: Received from node 1, Temp: 23.72, Humid: 52.64[0m
+[0;32mI (168022) network: Received from node 1, Temp: 23.72, Humid: 52.59[0m
+[0;32mI (169062) network: Received from node 1, Temp: 23.70, Humid: 52.56[0m
+[0;32mI (170102) network: Received from node 1, Temp: 23.69, Humid: 52.55[0m
+[0;32mI (171142) network: Received from node 1, Temp: 23.73, Humid: 52.51[0m

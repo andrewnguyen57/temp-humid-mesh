@@ -1,0 +1,23 @@
+Command: ninja all
+[1/13] Building C object esp-idf/gui/CMakeFiles/__idf_gui.dir/gui.c.obj
+[2/13] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj
+[3/13] Building C object esp-idf/network/CMakeFiles/__idf_network.dir/network.c.obj
+[4/13] Performing build step for 'bootloader'
+[1/1] C:\Windows\system32\cmd.exe /C "cd /D C:\Dev\Projects\ESP32\temp-humid-mesh\display-module\build\bootloader && C:\Espressif\tools\python\v6.0.1\venv\Scripts\python.exe C:/esp/v6.0.1/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x1000 C:/Dev/Projects/ESP32/temp-humid-mesh/display-module/build/bootloader/bootloader.bin"
+Bootloader binary size 0x6610 bytes. 0x9f0 bytes (9%) free.
+[5/13] No install step for 'bootloader'
+[6/13] Linking C static library esp-idf\gui\libgui.a
+[7/13] Completed 'bootloader'
+[8/13] Linking C static library esp-idf\network\libnetwork.a
+[9/13] Linking C static library esp-idf\main\libmain.a
+[10/13] Generating esp-idf/esp_system/ld/sections.ld
+[11/13] Linking CXX executable display-module.elf
+[12/13] Generating binary image from built executable
+esptool v5.3.dev3
+Creating ESP32 image...
+Merged 3 ELF sections.
+Successfully created ESP32 image.
+Generated C:/Dev/Projects/ESP32/temp-humid-mesh/display-module/build/display-module.bin
+[13/13] C:\Windows\system32\cmd.exe /C "cd /D C:\Dev\Projects\ESP32\temp-humid-mesh\display-module\build && C:\Espressif\tools\python\v6.0.1\venv\Scripts\python.exe C:/esp/v6.0.1/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 partition --type app C:/Dev/Projects/ESP32/temp-humid-mesh/display-module/build/partition_table/partition-table.bin C:/Dev/Projects/ESP32/temp-humid-mesh/display-module/build/display-module.bin"
+display-module.bin binary size 0xf3610 bytes. Smallest app partition is 0x100000 bytes. 0xc9f0 bytes (5%) free.
+Warning: The smallest app partition is nearly full (5% free space left)!
